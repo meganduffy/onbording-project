@@ -6,7 +6,7 @@ RSpec.describe PagesController, type: :controller do
     context 'when viewing homepage in the browser' do
       it 'returns a 200 OK response' do
         get :home
-          expect(response.status).to eq(200)
+        expect(response.status).to eq(200)
       end
     end
   end
