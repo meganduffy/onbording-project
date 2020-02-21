@@ -31,13 +31,15 @@ body {
   text-align: center;
 }
 
-.main h1 {
-  font-size: 80px;
-  font-weight: 300;
-}
+.main {
+  h1 {
+    font-size: 80px;
+    font-weight: 300;
+  }
 
-.main p {
-  font-size: 30px;
+  p {
+    font-size: 30px;
+  }
 }
 
 @media screen and (max-width: 800px) {
