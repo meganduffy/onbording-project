@@ -2,26 +2,22 @@
 <div class="main">
   <div class="container">
 
-    <h1>GOOSE</h1>
+    <%= form_with model: @user, id: 'signup-form' do |f| %>
 
-    <form id="signup-form">
-      <%#= form_tag("/signup", method: "get") do %>
-      <%= form_for(@user) do |f| %>
-        <%= label_tag(:first_name, "First Name") %>
-        <%= text_field_tag(:first_name) %>
+      <%= label_tag(:first_name, "First Name") %>
+      <%= f.text_field :first_name %>
 
-        <%= label_tag(:last_name, "Last Name") %>
-        <%= text_field_tag(:last_name) %>
+      <%= label_tag(:last_name, "Last Name") %>
+      <%= f.text_field :last_name %>
 
-        <%= label_tag(:email, "Email") %>
-        <%= text_field_tag(:email) %>
+      <%= label_tag(:email, "Email") %>
+      <%= f.text_field :email %>
 
-        <%= label_tag(:password, "Password") %>
-        <%= text_field_tag(:password) %>
+      <%= label_tag(:password, "Password") %>
+      <%= f.text_field :password %>
 
-        <%= submit_tag("Submit") %>
-      <% end %>
-    </form>
+      <%= f.submit "Sign Up" %>
+    <% end %>
   </div>
 </div>
 </body>
