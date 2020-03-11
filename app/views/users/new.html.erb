@@ -1,0 +1,35 @@
+<body>
+<div class="main">
+  <div class="container">
+
+    <%= form_for @user do |f| %>
+
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= label_tag(:first_name, "First Name") %>
+      <%= f.text_field :first_name %>
+
+      <%= label_tag(:last_name, "Last Name") %>
+      <%= f.text_field :last_name %>
+
+      <%= label_tag(:email, "Email") %>
+      <%= f.text_field :email %>
+
+      <%= label_tag(:password, "Password") %>
+      <%= f.text_field :password %>
+
+      <%= f.submit "Sign Up" %>
+    <% end %>
+  </div>
+</div>
+</body>
