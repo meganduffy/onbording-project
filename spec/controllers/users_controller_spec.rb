@@ -2,10 +2,6 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-  describe "GET #new" do
-
-  end
-
   describe "POST #create" do
     context "with correct params" do
       let(:parameters) { { user: { first_name: 'Megan', last_name: 'Duffy',
