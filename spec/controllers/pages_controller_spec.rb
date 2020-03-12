@@ -10,4 +10,16 @@ RSpec.describe PagesController, type: :controller do
       end
     end
   end
+
+  describe 'GET #secret_page' do
+    context 'with correct params' do
+      it 'renders the secret_page template'
+      it 'does not 302 temp redirect'
+    end
+
+    context 'with incorrect params' do
+      it 'responds with a 302 temp redirect'
+      it 'displays the login page'
+    end
+  end
 end
