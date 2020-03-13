@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
 
-  def home
+  before_action :require_user, only: [:secret_page]
 
+  def home
+  end
+
+  def secret_page
   end
 
 end

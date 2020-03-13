@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/signup', to: 'users#new'
   resources :users
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  get 'secret-page', to: 'pages#secret_page'
 end
