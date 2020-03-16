@@ -6,18 +6,37 @@ RSpec.describe SessionsController, type: :controller do
 
       let(:existing_user) { create(:user) }
 
+      before(:each) do
+        allow(User).to receive(:find_by_email).
+            and_return(existing_user)
+        allow_any_instance_of(User).to receive(:authenticate).
+            and_return(existing_user)
+      end
+
       it "redirects to homepage" do
-        post :create, params: existing_user
+        post :create, params: { session: {email: existing_user.email,
+                                          password: existing_user.password} }
         expect(response).to redirect_to "/"
       end
-      it "returns a 302 Temp Redirect"
-      it "removes the login button"
-      it "triggers as logout button to appear"
+      it "returns a 302 Temp Redirect" do
+        post :create, params: { session: {email: existing_user.email,
+                                          password: existing_user.password} }
+        expect(response.status).to eq(302)
+      end
     end
 
     context "without correct params" do
-      it "re-renders #new form"
-      it "does not return a 302 Temp Redirect response"
+
+      let(:existing_user) { create(:user) }
+
+      it "re-renders #new form" do
+        post :create, params: { session: {email: existing_user.email} }
+        expect(response).to render_template "new"
+      end
+      it "does not return a 302 Temp Redirect response" do
+        post :create, params: { session: {email: existing_user.email} }
+        expect(response.status).to_not eq(302)
+      end
     end
   end
 
