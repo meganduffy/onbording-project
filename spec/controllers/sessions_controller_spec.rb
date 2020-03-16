@@ -40,4 +40,26 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
+  describe "DELETE #logout" do
+    context "when logout triggered" do
+
+      let(:existing_user) { create(:user) }
+
+      before(:each) do
+        allow(User).to receive(:find_by_email).
+            and_return(existing_user)
+        allow_any_instance_of(User).to receive(:authenticate).
+            and_return(existing_user)
+      end
+
+      it "redirects to homepage" do
+        post :create, params: { session: {email: existing_user.email,
+                                          password: existing_user.password} }
+        delete :destroy
+        expect(response).to redirect_to "/"
+      end
+
+    end
+  end
+
 end
