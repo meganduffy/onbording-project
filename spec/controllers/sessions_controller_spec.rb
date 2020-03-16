@@ -59,6 +59,13 @@ RSpec.describe SessionsController, type: :controller do
         expect(response).to redirect_to "/"
       end
 
+      it "clears the session variable" do
+        post :create, params: { session: {email: existing_user.email,
+                                          password: existing_user.password} }
+        delete :destroy
+        expect(session[:user_id]).to eq(nil)
+      end
+
     end
   end
 
