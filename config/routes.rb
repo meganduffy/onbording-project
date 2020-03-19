@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get 'secret-page', to: 'pages#secret_page'
+
+  get '/article/new', to: 'articles#new'
 end
