@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe ArticlesController, type: :controller do
 
@@ -39,29 +40,29 @@ RSpec.describe ArticlesController, type: :controller do
   describe 'POST #create' do
     context 'with correct params' do
 
-      let(:user) { create(:user) }
+      let(:article) { create(:article) }
 
       before(:each) do
-        allow(controller).to receive(:current_user).and_return(user)
+        allow(controller).to receive(:current_user).and_return(User.find(article.user_id))
       end
 
-      # it 'saves a new article to the database' do
-      #   expect {
-      #     post :create, params: user
-      #   }.to change(Article, :count).by(1)
-      # end
+      it 'saves a new article to the database' do
+        expect {
+          post :create, params: article
+        }.to change(Article, :count).by(1)
+      end
 
       it 'displays a success message'
       it 'displays the article post'
+
+      it 'redirects to homepage' do
+        post :create, params: article
+        expect(response).to redirect_to '/'
+      end
     end
 
     context 'with incorrect params' do
-      # it 'does not save a new article to the database' do
-      #   expect {
-      #     post :create, params: user
-      #   }.to_not change(Article, :count).by(1)
-      # end
-
+      it 'does not save a new article to the database'
       it 're-renders #new'
       it 'displays an error message'
     end
