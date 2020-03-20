@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
 
-  validates :title, :content, :presence => true
-
   belongs_to :user
+
+  validates :title, :content, :user_id, :presence => true
 
 end
