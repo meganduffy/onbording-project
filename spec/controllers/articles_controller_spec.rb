@@ -25,7 +25,7 @@ RSpec.describe ArticlesController, type: :controller do
     end
 
     context 'when user is not logged in' do
-      it 'resonds with a 302' do
+      it 'responds with a 302' do
         get :new
         expect(response.status).to eq(302)
       end
