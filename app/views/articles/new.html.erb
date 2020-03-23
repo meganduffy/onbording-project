@@ -2,8 +2,6 @@
 <div class="main">
   <div class="container">
 
-    <p>heyyyy</p>
-
     <%= form_for(:article, url: article_new_path) do |f| %>
 
       <% if @article.errors.any? %>
@@ -17,8 +15,6 @@
           </ul>
         </div>
       <% end %>
-
-      <p>theeerrre</p>
 
       <%= label_tag(:title, "Title") %>
       <%= f.text_field :title %>
