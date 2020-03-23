@@ -41,7 +41,7 @@ RSpec.describe PagesController, type: :controller do
 
       it 'displays the login page' do
         get :secret_page
-        expect(response).to redirect_to "/login"
+        expect(response).to redirect_to login_path
       end
     end
   end

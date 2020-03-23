@@ -32,7 +32,7 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'redirects to the login page' do
         get :new
-        expect(response).to redirect_to '/login'
+        expect(response).to redirect_to login_path
       end
     end
   end
@@ -64,7 +64,7 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'redirects to homepage' do
         post :create, params: params
-        expect(response).to redirect_to '/'
+        expect(response).to redirect_to root_path
       end
     end
 

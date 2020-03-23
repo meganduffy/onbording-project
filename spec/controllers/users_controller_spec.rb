@@ -8,7 +8,7 @@ RSpec.describe UsersController, type: :controller do
                                    email: 'unique@email.com', password: 'hard2guess' } } }
       it "redirects to homepage" do
         post :create, params: parameters
-        expect(response).to redirect_to "/"
+        expect(response).to redirect_to root_path
       end
 
       it "returns a 302 Temp Redirect response" do
