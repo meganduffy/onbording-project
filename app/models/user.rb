@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :email, :presence => true, :uniqueness => true, :email => true
   validates :password_digest, :length => { :minimum => 5 }, :presence => true
 
+  has_many :articles
 end
