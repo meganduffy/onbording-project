@@ -13,36 +13,13 @@ RSpec.describe PagesController, type: :controller do
 
   describe 'GET #secret_page' do
     context 'with correct params' do
-
-      let(:user) { create(:user) }
-
-      before(:each) do
-        allow(controller).to receive(:current_user).and_return(user)
-      end
-
-
-      it 'responds with a 200 OK HTTP response' do
-        get :secret_page
-        expect(response.status).to eq(200)
-      end
-
-
-      it 'renders the secret_page template' do
-        get :secret_page
-        expect(response).to render_template "secret_page"
-      end
+      it 'renders the secret_page template'
+      it 'does not 302 temp redirect'
     end
 
     context 'with incorrect params' do
-      it 'responds with a 302 temp redirect' do
-        get :secret_page
-        expect(response.status).to eq(302)
-      end
-
-      it 'displays the login page' do
-        get :secret_page
-        expect(response).to redirect_to login_path
-      end
+      it 'responds with a 302 temp redirect'
+      it 'displays the login page'
     end
   end
 end

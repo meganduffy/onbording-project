@@ -16,7 +16,7 @@ RSpec.describe SessionsController, type: :controller do
       it "redirects to homepage" do
         post :create, params: { session: {email: existing_user.email,
                                           password: existing_user.password} }
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to "/"
       end
       it "returns a 302 Temp Redirect" do
         post :create, params: { session: {email: existing_user.email,
@@ -56,7 +56,7 @@ RSpec.describe SessionsController, type: :controller do
         post :create, params: { session: {email: existing_user.email,
                                           password: existing_user.password} }
         delete :destroy
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to "/"
       end
 
       it "clears the session variable" do

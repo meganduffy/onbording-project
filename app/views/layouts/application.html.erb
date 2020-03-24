@@ -21,11 +21,6 @@
       <li><%= link_to "Signup", 'signup' %></a></li>
     </ul>
   <% end %>
-  <% flash.each do |type, msg| %>
-    <div>
-      <%= msg %>
-    </div>
-  <% end %>
   <%= yield %>
   </body>
 </html>
