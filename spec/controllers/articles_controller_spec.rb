@@ -15,8 +15,7 @@ RSpec.describe ArticlesController, type: :controller do
         get :new
         expect(response.status).to eq(200)
       end
-
-
+      
       it 'renders the new template' do
         get :new
         expect(response).to render_template "new"
@@ -24,10 +23,6 @@ RSpec.describe ArticlesController, type: :controller do
     end
 
     context 'when user is not logged in' do
-      it 'responds with a 302' do
-        get :new
-        expect(response.status).to eq(302)
-      end
 
       it 'redirects to the login page' do
         get :new
