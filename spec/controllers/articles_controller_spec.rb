@@ -32,6 +32,7 @@ RSpec.describe ArticlesController, type: :controller do
   end
 
   describe 'POST #create' do
+    context 'when user is logged in' do
     context 'with correct params' do
 
       let(:article) { create(:article) }
@@ -53,8 +54,6 @@ RSpec.describe ArticlesController, type: :controller do
         post :create, params: params
         expect( response.request.flash[:success] ).to_not be_nil
       end
-
-      it 'pending: displays the article post'
 
       it 'redirects to homepage' do
         post :create, params: params
@@ -102,6 +101,14 @@ RSpec.describe ArticlesController, type: :controller do
       it 're-renders #new' do
         post :create, params: params
         expect(response).to render_template "new"
+      end
+    end
+    end
+
+    context 'when user is not logged in' do
+      it 'redirects to the login page' do
+        post :create
+        expect(response).to redirect_to login_path
       end
     end
   end
