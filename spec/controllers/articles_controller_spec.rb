@@ -13,7 +13,7 @@ RSpec.describe ArticlesController, type: :controller do
         get :new
         expect(response.status).to eq(200)
       end
-      
+
       it 'renders the new template' do
         get :new
         expect(response).to render_template "new"
@@ -31,76 +31,76 @@ RSpec.describe ArticlesController, type: :controller do
 
   describe 'POST #create' do
     context 'when user is logged in' do
-    context 'with correct params' do
+      context 'with correct params' do
 
-      let(:article) { create(:article) }
+        let(:article) { create(:article) }
 
-      let(:params) { {article: {title: article.title,
-                                content: article.content}} }
+        let(:params) { {article: {title: article.title,
+                                  content: article.content}} }
 
-      before(:each) do
-        allow(controller).to receive(:current_user).and_return(article.user)
-      end
+        before(:each) do
+          allow(controller).to receive(:current_user).and_return(article.user)
+        end
 
-      it 'saves a new article to the database' do
-        expect {
+        it 'saves a new article to the database' do
+          expect {
+            post :create, params: params
+          }.to change(Article, :count).by(1)
+        end
+
+        it 'displays a success message' do
           post :create, params: params
-        }.to change(Article, :count).by(1)
-      end
+          expect(response.request.flash[:success]).to_not be_nil
+        end
 
-      it 'displays a success message' do
-        post :create, params: params
-        expect( response.request.flash[:success] ).to_not be_nil
-      end
-
-      it 'redirects to homepage' do
-        post :create, params: params
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    context 'without a title included in params' do
-      let(:article) { create(:article) }
-
-      before(:each) do
-        allow(controller).to receive(:current_user).and_return(article.user)
-      end
-
-      let(:params) { {article: {title: nil,
-                                content: article.content}} }
-
-      it 'does not save a new article to the database' do
-        expect {
+        it 'redirects to homepage' do
           post :create, params: params
-        }.to_not change(Article, :count)
-      end
-      it 're-renders #new' do
-        post :create, params: params
-        expect(response).to render_template "new"
-      end
-    end
-
-    context 'without content included in params' do
-
-      let(:article) { create(:article) }
-
-      before(:each) do
-        allow(controller).to receive(:current_user).and_return(article.user)
+          expect(response).to redirect_to root_path
+        end
       end
 
-      let(:params) { {article: {title: article.title,
-                                content: nil}} }
+      context 'without a title included in params' do
+        let(:article) { create(:article) }
 
-      it 'does not save a new article to the database' do
-        expect {
+        before(:each) do
+          allow(controller).to receive(:current_user).and_return(article.user)
+        end
+
+        let(:params) { {article: {title: nil,
+                                  content: article.content}} }
+
+        it 'does not save a new article to the database' do
+          expect {
+            post :create, params: params
+          }.to_not change(Article, :count)
+        end
+        it 're-renders #new' do
           post :create, params: params
-        }.to_not change(Article, :count)
+          expect(response).to render_template "new"
+        end
       end
-      it 're-renders #new' do
-        post :create, params: params
-        expect(response).to render_template "new"
+
+      context 'without content included in params' do
+
+        let(:article) { create(:article) }
+
+        before(:each) do
+          allow(controller).to receive(:current_user).and_return(article.user)
+        end
+
+        let(:params) { {article: {title: article.title,
+                                  content: nil}} }
+
+        it 'does not save a new article to the database' do
+          expect {
+            post :create, params: params
+          }.to_not change(Article, :count)
+        end
+        it 're-renders #new' do
+          post :create, params: params
+          expect(response).to render_template "new"
+        end
       end
-    end
     end
 
     context 'when user is not logged in' do
