@@ -1,6 +1,5 @@
 RSpec.describe SessionsController, type: :controller do
 
-
   describe "POST #create" do
     context "with correct params" do
 

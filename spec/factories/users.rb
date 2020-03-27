@@ -1,9 +1,11 @@
+require 'faker'
+
 FactoryBot.define do
   factory :user do
-    first_name { "Megan" }
-    last_name { "Duffy" }
-    email { "login@login.com" }
-    password { "login" }
-    id { "10" }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    email { Faker::Internet.email }
+    password { Faker::Internet.password }
+    id { Random.rand(100) }
   end
 end
