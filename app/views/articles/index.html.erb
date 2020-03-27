@@ -1,0 +1,13 @@
+<div class="container">
+<% @articles.each do |article| %>
+
+  <p><%= article.title %></p>
+
+  <p><%= truncate(article.content, length:300) %></p>
+
+  <p><%= article.user.first_name %></p>
+
+  <p><%= article.created_at %></p>
+
+<% end %>
+</div>
