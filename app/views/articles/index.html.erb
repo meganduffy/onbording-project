@@ -1,4 +1,8 @@
 <div class="container">
+
+  <h3>Want to contribute?</h3>
+  <%= link_to "Create Article", article_new_path %>
+  <br>
 <% @articles.each do |article| %>
 
   <p><%= article.title %></p>
