@@ -111,4 +111,25 @@ RSpec.describe ArticlesController, type: :controller do
     end
   end
 
+  describe 'GET #index' do
+    context 'when user is logged in' do
+      let(:user) { create(:user) }
+
+      before(:each) do
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+      it 'renders the index template' do
+        get :index
+        expect(response).to render_template "index"
+      end
+    end
+
+
+    context 'when user is not logged in' do
+      it 'renders the index template' do
+        get :index
+        expect(response).to render_template "index"
+      end
+    end
+  end
 end
