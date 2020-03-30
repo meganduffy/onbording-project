@@ -6,6 +6,8 @@ describe 'articles/index.html.erb', type: :view do
 
         render
 
+        # I'm just after realizing this test does not fail!!
+
         rendered.include? "article-title"
         rendered.include? "article-content"
         rendered.include? "article-user"
