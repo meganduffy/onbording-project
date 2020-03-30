@@ -16,6 +16,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "webpack-dev-server": "^3.10.3"
   }
 }
