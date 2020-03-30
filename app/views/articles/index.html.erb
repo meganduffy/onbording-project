@@ -5,13 +5,13 @@
   <br>
 <% @articles.each do |article| %>
 
-  <p><%= article.title %></p>
+  <p id="article-title"><%= article.title %></p>
 
-  <p><%= truncate(article.content, length:300) %></p>
+  <p id="article-content"><%= truncate(article.content, length:300) %></p>
 
-  <p><%= article.user.first_name %></p>
+  <p id="article-user"><%= article.user.first_name %></p>
 
-  <p><%= article.created_at %></p>
+  <p id="article-created-at"><%= article.created_at %></p>
 
 <% end %>
 </div>
