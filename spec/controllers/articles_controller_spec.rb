@@ -117,16 +117,31 @@ RSpec.describe ArticlesController, type: :controller do
       before(:each) do
         allow(controller).to receive(:current_user).and_return(user)
       end
-      it 'renders the index template' do
+
+      it 'fetches a list of articles reverse ordered by creation date' do
+        article1 = create(:article)
+        article2 = create(:article)
         get :index
-        expect(response).to render_template "index"
+        expect(assigns(:articles)).to eq([article2, article1])
+      end
+
+      it 'returns a 200 OK HTTP response' do
+        get :index
+        expect(response.status).to eq(200)
       end
     end
 
     context 'when user is not logged in' do
-      it 'renders the index template' do
+      it 'fetches a list of articles reverse ordered by creation date' do
+        article1 = create(:article)
+        article2 = create(:article)
         get :index
-        expect(response).to render_template "index"
+        expect(assigns(:articles)).to eq([article2, article1])
+      end
+
+      it 'returns a 200 OK HTTP response' do
+        get :index
+        expect(response.status).to eq(200)
       end
     end
   end
