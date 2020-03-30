@@ -2,16 +2,12 @@ describe 'articles/index.html.erb', type: :view do
 
   describe 'GET #index' do
       it 'displays a list of articles' do
-        assign(:articles, [build_stubbed(:article)])
+        assign(:articles, [build_stubbed(:article, title: "Test", content: "Lorem Ipsum.")])
 
         render
 
-        # I'm just after realizing this test does not fail!!
-
-        rendered.include? "article-title"
-        rendered.include? "article-content"
-        rendered.include? "article-user"
-        rendered.include? "article-created-at"
+        expect(rendered).to have_content("Test")
+        expect(rendered).to have_content("Lorem Ipsum.")
       end
     end
   end
