@@ -38,6 +38,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem 'pry'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'capybara', '>= 2.15'
 end
 
 group :development do
