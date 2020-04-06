@@ -1,6 +1,6 @@
 RSpec.describe ArticlesController, type: :controller do
 
-  user = let(:user) { create(:user) }
+  let(:user) { create(:user) }
 
   describe 'GET #new' do
     context 'when user is logged in' do
