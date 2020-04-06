@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :require_user
+  before_action :require_user, only: [:new, :create]
 
   def new
     @article = Article.new
@@ -14,6 +14,10 @@ class ArticlesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def index
+    @articles = Article.order(created_at: :desc)
   end
 
   private

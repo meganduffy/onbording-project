@@ -1,9 +1,9 @@
 RSpec.describe ArticlesController, type: :controller do
 
+  let(:user) { create(:user) }
+
   describe 'GET #new' do
     context 'when user is logged in' do
-
-      let(:user) { create(:user) }
 
       before(:each) do
         allow(controller).to receive(:current_user).and_return(user)
@@ -111,4 +111,38 @@ RSpec.describe ArticlesController, type: :controller do
     end
   end
 
+  describe 'GET #index' do
+    context 'when user is logged in' do
+
+      before(:each) do
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+
+      it 'fetches a list of articles reverse ordered by creation date' do
+        article1 = create(:article)
+        article2 = create(:article)
+        get :index
+        expect(assigns(:articles)).to eq([article2, article1])
+      end
+
+      it 'returns a 200 OK HTTP response' do
+        get :index
+        expect(response.status).to eq(200)
+      end
+    end
+
+    context 'when user is not logged in' do
+      it 'fetches a list of articles reverse ordered by creation date' do
+        article1 = create(:article)
+        article2 = create(:article)
+        get :index
+        expect(assigns(:articles)).to eq([article2, article1])
+      end
+
+      it 'returns a 200 OK HTTP response' do
+        get :index
+        expect(response.status).to eq(200)
+      end
+    end
+  end
 end
