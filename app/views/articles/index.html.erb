@@ -1,18 +1,28 @@
 <div class="container">
 
   <h3>Want to contribute?</h3>
-<%= link_to "Create Article", article_new_path %>
+  <%= link_to "Create Article", article_new_path %>
   <br>
-<% @articles.each do |article| %>
 
-  <p id="article-title"><%= article.title %></p>
+  <% if @articles %>
 
-  <p id="article-content"><%= truncate(article.content, length:300) %></p>
+    <% @articles.each do |article| %>
 
-  <p id="article-user"><%= article.user.first_name %></p>
+      <p id="article-title"><%= article.title %></p>
 
-  <p id="article-created-at"><%= article.created_at %></p>
+      <p id="article-content"><%= truncate(article.content, length: 300) %></p>
 
-<% end %>
+      <p id="article-user"><%= article.user.first_name %></p>
+
+      <p id="article-created-at"><%= article.created_at %></p>
+
+    <% end %>
+
+
+  <% else %>
+
+    <h3>It looks as though there's nothing here yet!</h3>
+
+  <% end %>
+
 </div>
-
