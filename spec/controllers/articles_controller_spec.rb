@@ -14,7 +14,7 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'renders the new template' do
         get :new
-        expect(response).to render_template "new"
+        expect(response).to render_template 'new'
       end
     end
 
@@ -31,19 +31,19 @@ RSpec.describe ArticlesController, type: :controller do
       context 'with correct params' do
         let(:article) { create(:article) }
 
-        let(:params) {
+        let(:params) do
           { article: { title: article.title,
                        content: article.content } }
-        }
+        end
 
         before(:each) do
           allow(controller).to receive(:current_user).and_return(article.user)
         end
 
         it 'saves a new article to the database' do
-          expect {
+          expect do
             post :create, params: params
-          }.to change(Article, :count).by(1)
+          end.to change(Article, :count).by(1)
         end
 
         it 'displays a success message' do
@@ -64,19 +64,19 @@ RSpec.describe ArticlesController, type: :controller do
           allow(controller).to receive(:current_user).and_return(article.user)
         end
 
-        let(:params) {
+        let(:params) do
           { article: { title: nil,
                        content: article.content } }
-        }
+        end
 
         it 'does not save a new article to the database' do
-          expect {
+          expect do
             post :create, params: params
-          }.to_not change(Article, :count)
+          end.to_not change(Article, :count)
         end
         it 're-renders #new' do
           post :create, params: params
-          expect(response).to render_template "new"
+          expect(response).to render_template 'new'
         end
       end
 
@@ -87,19 +87,19 @@ RSpec.describe ArticlesController, type: :controller do
           allow(controller).to receive(:current_user).and_return(article.user)
         end
 
-        let(:params) {
+        let(:params) do
           { article: { title: article.title,
                        content: nil } }
-        }
+        end
 
         it 'does not save a new article to the database' do
-          expect {
+          expect do
             post :create, params: params
-          }.to_not change(Article, :count)
+          end.to_not change(Article, :count)
         end
         it 're-renders #new' do
           post :create, params: params
-          expect(response).to render_template "new"
+          expect(response).to render_template 'new'
         end
       end
     end

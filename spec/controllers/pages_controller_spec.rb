@@ -23,7 +23,7 @@ RSpec.describe PagesController, type: :controller do
 
       it 'renders the secret_page template' do
         get :secret_page
-        expect(response).to render_template "secret_page"
+        expect(response).to render_template 'secret_page'
       end
     end
 
