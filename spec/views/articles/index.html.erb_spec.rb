@@ -1,7 +1,5 @@
 describe 'articles/index.html.erb', type: :view do
-
   describe 'GET #index' do
-
     context 'if there is one article' do
       it 'displays the article' do
         assign(:articles, [build_stubbed(:article, title: "Test", content: "Lorem Ipsum.")])
@@ -29,7 +27,6 @@ describe 'articles/index.html.erb', type: :view do
 
     context 'if there are no articles' do
       it 'displays no articles message' do
-
         render
 
         expect(rendered).to have_content("It looks as though there's nothing here yet!")
@@ -45,6 +42,5 @@ describe 'articles/index.html.erb', type: :view do
         expect(rendered).to_not have_content("It looks as though there's nothing here yet!")
       end
     end
-
   end
 end

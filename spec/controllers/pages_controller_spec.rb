@@ -1,5 +1,4 @@
 RSpec.describe PagesController, type: :controller do
-
   describe 'GET #home' do
     context 'when viewing homepage in the browser' do
       it 'returns a 200 OK response' do
@@ -11,19 +10,16 @@ RSpec.describe PagesController, type: :controller do
 
   describe 'GET #secret_page' do
     context 'with correct params' do
-
       let(:user) { create(:user) }
 
       before(:each) do
         allow(controller).to receive(:current_user).and_return(user)
       end
 
-
       it 'responds with a 200 OK HTTP response' do
         get :secret_page
         expect(response.status).to eq(200)
       end
-
 
       it 'renders the secret_page template' do
         get :secret_page

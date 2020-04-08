@@ -1,9 +1,10 @@
 RSpec.describe UsersController, type: :controller do
-
   describe "POST #create" do
     context "with correct params" do
-      let(:parameters) { { user: { first_name: 'Megan', last_name: 'Duffy',
-                                   email: 'unique@email.com', password: 'hard2guess' } } }
+      let(:parameters) {
+        { user: { first_name: 'Megan', last_name: 'Duffy',
+                  email: 'unique@email.com', password: 'hard2guess' } }
+      }
       it "redirects to homepage" do
         post :create, params: parameters
         expect(response).to redirect_to root_path
@@ -22,8 +23,10 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "without correct params" do
-      let(:parameters) { { user: { last_name: 'Duffy',
-                                   email: 'unique@email.com', password: 'hard2guess' } } }
+      let(:parameters) {
+        { user: { last_name: 'Duffy',
+                  email: 'unique@email.com', password: 'hard2guess' } }
+      }
       it "re-renders #new form" do
         post :create, params: parameters
         expect(response).to render_template "new"

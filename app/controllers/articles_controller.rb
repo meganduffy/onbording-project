@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   before_action :require_user, only: [:new, :create]
 
   def new
@@ -20,7 +19,8 @@ class ArticlesController < ApplicationController
     @articles = Article.order(created_at: :desc)
   end
 
-  private
+private
+
   def article_params
     params.require(:article).permit(:title, :content).merge(user_id: current_user.id)
   end

@@ -1,5 +1,4 @@
 RSpec.describe User, type: :model do
-
   user = User.new(first_name: "John",
                   last_name: "Doe",
                   email: "john@unique.com",
@@ -31,7 +30,7 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
-  it "is not valid without a password"do
+  it "is not valid without a password" do
     user.password = nil
     expect(user).to_not be_valid
   end
@@ -40,5 +39,4 @@ RSpec.describe User, type: :model do
     user.password = "1234"
     expect(user).to_not be_valid
   end
-
 end
