@@ -39,6 +39,7 @@ group :development, :test do
   gem 'pry'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'capybara', '>= 2.15'
+  gem 'rubocop', require: false
 end
 
 group :development do
