@@ -1,10 +1,8 @@
 RSpec.describe ArticlesController, type: :controller do
-
   let(:user) { create(:user) }
 
   describe 'GET #new' do
     context 'when user is logged in' do
-
       before(:each) do
         allow(controller).to receive(:current_user).and_return(user)
       end
@@ -16,12 +14,11 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'renders the new template' do
         get :new
-        expect(response).to render_template "new"
+        expect(response).to render_template 'new'
       end
     end
 
     context 'when user is not logged in' do
-
       it 'redirects to the login page' do
         get :new
         expect(response).to redirect_to login_path
@@ -32,20 +29,21 @@ RSpec.describe ArticlesController, type: :controller do
   describe 'POST #create' do
     context 'when user is logged in' do
       context 'with correct params' do
-
         let(:article) { create(:article) }
 
-        let(:params) { {article: {title: article.title,
-                                  content: article.content}} }
+        let(:params) do
+          { article: { title: article.title,
+                       content: article.content } }
+        end
 
         before(:each) do
           allow(controller).to receive(:current_user).and_return(article.user)
         end
 
         it 'saves a new article to the database' do
-          expect {
+          expect do
             post :create, params: params
-          }.to change(Article, :count).by(1)
+          end.to change(Article, :count).by(1)
         end
 
         it 'displays a success message' do
@@ -66,39 +64,42 @@ RSpec.describe ArticlesController, type: :controller do
           allow(controller).to receive(:current_user).and_return(article.user)
         end
 
-        let(:params) { {article: {title: nil,
-                                  content: article.content}} }
+        let(:params) do
+          { article: { title: nil,
+                       content: article.content } }
+        end
 
         it 'does not save a new article to the database' do
-          expect {
+          expect do
             post :create, params: params
-          }.to_not change(Article, :count)
+          end.to_not change(Article, :count)
         end
         it 're-renders #new' do
           post :create, params: params
-          expect(response).to render_template "new"
+          expect(response).to render_template 'new'
         end
       end
 
       context 'without content included in params' do
-
         let(:article) { create(:article) }
 
         before(:each) do
           allow(controller).to receive(:current_user).and_return(article.user)
         end
 
-        let(:params) { {article: {title: article.title,
-                                  content: nil}} }
+        let(:params) do
+          { article: { title: article.title,
+                       content: nil } }
+        end
 
         it 'does not save a new article to the database' do
-          expect {
+          expect do
             post :create, params: params
-          }.to_not change(Article, :count)
+          end.to_not change(Article, :count)
         end
         it 're-renders #new' do
           post :create, params: params
-          expect(response).to render_template "new"
+          expect(response).to render_template 'new'
         end
       end
     end
@@ -113,7 +114,6 @@ RSpec.describe ArticlesController, type: :controller do
 
   describe 'GET #index' do
     context 'when user is logged in' do
-
       before(:each) do
         allow(controller).to receive(:current_user).and_return(user)
       end

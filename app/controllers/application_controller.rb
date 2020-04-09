@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  
   helper_method :current_user
 
   def log_in(user)
@@ -13,5 +12,4 @@ class ApplicationController < ActionController::Base
   def require_user
     redirect_to '/login' unless current_user
   end
-
 end

@@ -1,5 +1,4 @@
 RSpec.describe Article, type: :model do
-
   let(:article) { create(:article) }
 
   it 'is valid with all valid attributes' do
