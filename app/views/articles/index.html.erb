@@ -2,6 +2,9 @@
 
   <h3>Want to contribute?</h3>
   <%= link_to "Create Article", article_new_path %>
+
+  <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
+
   <br>
 
   <% if @articles %>
