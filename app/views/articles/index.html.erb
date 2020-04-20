@@ -1,20 +1,17 @@
 <div class="container">
 
-  <h3>Want to contribute?</h3>
-  <%= link_to "Create Article", article_new_path %>
+  <%= react_component("Articles/ArticlesHeader", {title: "Demonic Tails", 
+  subtitle: "Has your cat been possessed?"}) %>
   <br>
 
   <% if @articles %>
 
     <% @articles.each do |article| %>
 
-      <p id="article-title"><%= article.title %></p>
-
-      <p id="article-content"><%= truncate(article.content, length: 300) %></p>
-
-      <p id="article-user"><%= article.user.first_name %></p>
-
-      <p id="article-created-at"><%= article.created_at %></p>
+      <%= react_component("Articles/ArticlesDetails", {title: article.title, 
+      content: truncate(article.content, length: 300), 
+      user: article.user.first_name, 
+      created_at: article.created_at}) %>
 
     <% end %>
 
