@@ -8,7 +8,7 @@ type ArticleHeaderProps = {
 class ArticleHeader extends React.Component<ArticleHeaderProps> {
   render () {
     return (
-        <div id="articles-header">
+        <div>
             <h1>{this.props.title}</h1>
             <h2>{this.props.subtitle}</h2>
         </div>
