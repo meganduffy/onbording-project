@@ -11,7 +11,7 @@
       <%= react_component("Articles/ArticlesDetails", {title: article.title, 
       content: truncate(article.content, length: 300), 
       user: article.user.first_name, 
-      created_at: article.created_at}) %>
+      created_at: article.created_at.strftime("%d %B %Y")}) %>
 
     <% end %>
 
