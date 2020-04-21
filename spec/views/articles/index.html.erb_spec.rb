@@ -1,13 +1,12 @@
 describe 'articles/index.html.erb', type: :view do
   describe 'GET #index' do
     context 'if there is one article' do
-      it 'displays the article' do
+      it 'displays the Article Component' do
         assign(:articles, [build_stubbed(:article, title: 'Test', content: 'Lorem Ipsum.')])
 
         render
 
-        expect(rendered).to have_content('Test')
-        expect(rendered).to have_content('Lorem Ipsum.')
+        expect(rendered).to include('Articles/ArticlesDetails')
       end
     end
 
@@ -18,10 +17,7 @@ describe 'articles/index.html.erb', type: :view do
 
         render
 
-        expect(rendered).to have_content('Test1')
-        expect(rendered).to have_content('1. Lorem Ipsum.')
-        expect(rendered).to have_content('Test2')
-        expect(rendered).to have_content('2. Lorem Ipsum.')
+        expect(rendered).to include('Articles/ArticlesDetails', 'Articles/ArticlesDetails')
       end
     end
 
