@@ -10,19 +10,19 @@
     #articles-title {
         text-decoration: underline wavy black;
     }
-}
 
-#articles-details > * {
-    padding: 10px;
-}
-
-#articles-details-info {
-    display: flex;
-    flex-flow: row wrap;
-    background-color: white;
-
-    p {
-        margin: 0 20px 0 0;
-        padding: -20px;
+    > * {
+        padding: 10px;
     }
-} 
+
+    #articles-details-info {
+        display: flex;
+        flex-flow: row wrap;
+        background-color: white;
+    
+        p {
+            margin: 0 20px 0 0;
+            padding: -20px;
+        }
+    } 
+}
