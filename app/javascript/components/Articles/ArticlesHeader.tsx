@@ -5,7 +5,7 @@ export interface ArticleHeaderProps {
   subtitle:string
 }
  
-const ArticleHeader: React.SFC<ArticleHeaderProps> = (props) => {
+const ArticleHeader: React.FC<ArticleHeaderProps> = (props) => {
   return ( 
     <div id="articles-header">
             <h1>{props.title}</h1>
