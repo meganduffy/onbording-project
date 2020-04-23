@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  id="articles-details"
+>
+  <h3
+    id="articles-title"
+  >
+    New Post
+  </h3>
+  <p
+    id="articles-content"
+  >
+    Ipsum Lorem
+  </p>
+  <div
+    id="articles-details-info"
+  >
+    <p
+      id="articles-user"
+    >
+      Megan
+    </p>
+    <p
+      id="articles-created-at"
+    >
+      27 March 2020
+    </p>
+  </div>
+</div>
+`;

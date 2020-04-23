@@ -1,0 +1,28 @@
+#articles-header {
+    text-align: center;
+}
+
+#articles-details {
+    border: black 2px solid;
+    margin: 0 0 20px 0;
+    background-color: rgba(0,0,0,.5);
+
+    #articles-title {
+        text-decoration: underline wavy black;
+    }
+
+    > * {
+        padding: 10px;
+    }
+
+    #articles-details-info {
+        display: flex;
+        flex-flow: row wrap;
+        background-color: white;
+    
+        p {
+            margin: 0 20px 0 0;
+            padding: -20px;
+        }
+    } 
+}

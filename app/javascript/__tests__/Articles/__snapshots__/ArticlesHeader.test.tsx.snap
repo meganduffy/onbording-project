@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  id="articles-header"
+>
+  <h1>
+    Article Header
+  </h1>
+  <h2>
+    Ipsum Lorem
+  </h2>
+</div>
+`;
