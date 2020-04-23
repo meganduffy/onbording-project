@@ -7,7 +7,7 @@ export interface ArticleDetailsProps {
   created_at:string
 }
  
-const ArticleDetails: React.SFC<ArticleDetailsProps> = (props) => {
+const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
   return ( 
     <div id="articles-details">
       <h3 id="articles-title">{props.title}</h3>
