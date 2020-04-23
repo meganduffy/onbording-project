@@ -148,7 +148,6 @@ RSpec.describe ArticlesController, type: :controller do
 
   describe 'GET #show' do
     context 'when user is logged in' do
-
       before(:each) do
         allow(controller).to receive(:current_user).and_return(user)
       end
