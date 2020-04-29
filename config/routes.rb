@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get 'secret-page', to: 'pages#secret_page'
 
-  get '/article', to: 'articles#index'
-  get '/article/new', to: 'articles#new'
-  post '/article/new', to: 'articles#create'
+  get '/articles', to: 'articles#index'
+  get '/articles/new', to: 'articles#new'
+  post '/articles/new', to: 'articles#create'
+  get '/articles/:id', to: 'articles#show', as: 'article'
 end

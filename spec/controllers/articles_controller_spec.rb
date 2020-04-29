@@ -145,4 +145,26 @@ RSpec.describe ArticlesController, type: :controller do
       end
     end
   end
+
+  describe 'GET #show' do
+    context 'when user is logged in' do
+      before(:each) do
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+
+      it 'returns a 200 OK HTTP response' do
+        article = create(:article)
+        get :show, params: { id: article.id }
+        expect(response.status).to eq(200)
+      end
+    end
+
+    context 'when user is not logged in' do
+      it 'returns a 200 OK HTTP response' do
+        article = create(:article)
+        get :show, params: { id: article.id }
+        expect(response.status).to eq(200)
+      end
+    end
+  end
 end

@@ -13,6 +13,8 @@
       user: article.user.first_name, 
       created_at: article.created_at.strftime("%d %B %Y")}) %>
 
+      <%= link_to 'View Full Article', article_path(article) %>
+
     <% end %>
 
 

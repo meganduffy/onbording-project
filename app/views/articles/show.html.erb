@@ -1,0 +1,12 @@
+<div class="container">
+
+    <h1><%= @article.title %></h1>
+
+    <p><%= @article.content %></p>
+
+    <p id="articles-user"><%= @article.user.first_name %> <%= @article.user.last_name %></p>
+    <p id="articles-created-at"><%= @article.created_at.strftime("%d %B %Y") %></p>
+
+    <%= link_to "< All Articles", articles_path %>
+
+</div>
