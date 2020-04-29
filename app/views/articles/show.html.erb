@@ -1,11 +1,12 @@
 <div class="container">
 
-    <h1><%= @article.title %></h1>
-
-    <p><%= @article.content %></p>
-
-    <p id="articles-user"><%= @article.user.first_name %> <%= @article.user.last_name %></p>
-    <p id="articles-created-at"><%= @article.created_at.strftime("%d %B %Y") %></p>
+    <%= react_component("Article/FullArticle", {
+        title:@article.title,
+        content:@article.content,
+        first_name:@article.user.first_name,
+        last_name:@article.user.last_name,
+        created_at:@article.created_at.strftime("%d %B %Y")
+    }) %>
 
     <%= link_to "< All Articles", articles_path %>
 
