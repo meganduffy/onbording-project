@@ -1,11 +1,11 @@
 import React from 'react';
 
-export interface ArticleHeaderProps {
+export interface ArticlesHeaderProps {
   title:string,
   subtitle:string
 }
  
-const ArticleHeader: React.FC<ArticleHeaderProps> = (props) => {
+const ArticlesHeader: React.FC<ArticlesHeaderProps> = (props) => {
   return ( 
     <div id="articles-header">
             <h1>{props.title}</h1>
@@ -14,4 +14,4 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = (props) => {
   );
 }
  
-export default ArticleHeader;
+export default ArticlesHeader;

@@ -1,13 +1,13 @@
 import React from 'react'; 
 
-export interface ArticleDetailsProps {
+export interface ArticlesDetailsProps {
   title:string,
   content:string,
   user:string,
   created_at:string
 }
  
-const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
+const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
   return ( 
     <div id="articles-details">
       <h3 id="articles-title">{props.title}</h3>
@@ -22,4 +22,4 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
   );
 }
  
-export default ArticleDetails;
+export default ArticlesDetails;
