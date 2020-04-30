@@ -6,14 +6,13 @@
     display:flex;
     flex-flow:row nowrap;
 
-    #articles-view-more, #articles-details {
+    .articles-aside, .articles-details {
         border: black 2px solid;
         margin: 0 0 20px 0;
     }
 
-    #articles-view-more {
+    .articles-aside {
         flex:1;
-        flex-flow: center center;
         display: flex;
         align-items: center;
         background-color:white;
@@ -22,16 +21,15 @@
         
         a {
             text-decoration: none;
-            color:rgb(247, 108, 131);
         }
     }
 
-    #articles-details {
+    .articles-details {
         background-color: rgba(0,0,0,.5);
         width:60vw;
         flex:4;
     
-        #articles-title {
+        .articles-title {
             text-decoration: underline wavy black;
         }
     
@@ -39,7 +37,7 @@
             padding: 10px;
         }
     
-        #articles-details-info {
+        .articles-details-info {
             display: flex;
             flex-flow: row wrap;
             background-color: white;

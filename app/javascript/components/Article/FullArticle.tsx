@@ -10,13 +10,17 @@ export interface FullArticleProps {
 
 const FullArticle: React.FC<FullArticleProps> = (props) => {
     return (
-        <div>
-            <h1>{props.title}</h1>
+        <div className="articles-details">
+            <h1 className="articles-title">{props.title}</h1>
 
             <p>{props.content}</p>
 
-            <p id="articles-user">{props.first_name} {props.last_name}</p>
-            <p id="articles-created-at">{props.created_at}</p>
+            <div className="articles-details-info">
+                <p>{props.first_name} {props.last_name}</p>
+                <p>{props.created_at}</p>
+            </div>
+
+            
         </div>
     )
 }

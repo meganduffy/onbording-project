@@ -2,29 +2,23 @@
 
 exports[`renders correctly 1`] = `
 <div
-  id="articles-details"
+  className="articles-details"
 >
   <h3
-    id="articles-title"
+    className="articles-title"
   >
     New Post
   </h3>
-  <p
-    id="articles-content"
-  >
+  <p>
     Ipsum Lorem
   </p>
   <div
-    id="articles-details-info"
+    className="articles-details-info"
   >
-    <p
-      id="articles-user"
-    >
+    <p>
       Megan
     </p>
-    <p
-      id="articles-created-at"
-    >
+    <p>
       27 March 2020
     </p>
   </div>
