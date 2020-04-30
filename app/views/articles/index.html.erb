@@ -8,12 +8,18 @@
 
     <% @articles.each do |article| %>
 
-      <%= react_component("Articles/ArticlesDetails", {title: article.title, 
-      content: truncate(article.content, length: 300), 
-      user: article.user.first_name, 
-      created_at: article.created_at.strftime("%d %B %Y")}) %>
+      <div class="outer-article-container">
 
-      <%= link_to 'View Full Article', article_path(article) %>
+        <%= react_component("Articles/ArticlesDetails", {title: article.title, 
+        content: truncate(article.content, length: 300), 
+        user: article.user.first_name, 
+        created_at: article.created_at.strftime("%d %B %Y")}) %>
+
+        <div id="articles-view-more">
+          <%= link_to 'View Full Article', article_path(article) %>
+        </div>
+
+      </div>
 
     <% end %>
 
