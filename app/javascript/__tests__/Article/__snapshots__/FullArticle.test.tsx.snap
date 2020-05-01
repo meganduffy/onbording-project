@@ -16,7 +16,9 @@ exports[`renders correctly 1`] = `
     className="articles-details-info"
   >
     <p>
+      Megan
        
+      Duffy
     </p>
     <p>
       27 March 2020

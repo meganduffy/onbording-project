@@ -19,7 +19,7 @@ afterEach(() => {
 
 it('renders correctly', ()=>{
   const tree = renderer.create(<FullArticle title='New Post' content='Ipsum Lorem'
-  user='Megan' created_at='27 March 2020' />).toJSON();
+  first_name='Megan' last_name='Duffy' created_at='27 March 2020' />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
