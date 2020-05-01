@@ -10,18 +10,17 @@
 
       <%= link_to article_path(article) do %>
 
-        <div class="outer-article-container">
+        
 
-          <%= react_component("Articles/ArticlesDetails", {title: article.title, 
+          <%= react_component("Articles/ArticlesDetails", {
+          title: article.title, 
           content: truncate(article.content, length: 300), 
-          user: article.user.first_name, 
-          created_at: article.created_at.strftime("%d %B %Y")}) %>
+          firstName: article.user.first_name, 
+          created_at: article.created_at.strftime("%d %B %Y"),
+          link: article_path(article),
+          linkText:"View Full Article"}) %>
 
-          <div class="articles-aside">
-            <%= link_to 'View Full Article', article_path(article) %>
-          </div>
-
-        </div>
+        
 
       <% end %>
 

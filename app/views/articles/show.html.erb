@@ -6,17 +6,15 @@
 
     <div class="outer-article-container">
 
-        <%= react_component("Article/FullArticle", {
+        <%= react_component("Articles/ArticlesDetails", {
             title:@article.title,
             content:@article.content,
-            first_name:@article.user.first_name,
-            last_name:@article.user.last_name,
-            created_at:@article.created_at.strftime("%d %B %Y")
-        }) %>
-
-        <div class="articles-aside">
-            <%= link_to "View All Articles", articles_path %>
-        </div>
+            firstName:@article.user.first_name,
+            lastName:@article.user.last_name,
+            created_at:@article.created_at.strftime("%d %B %Y"),
+            link:articles_path,
+            linkText:"View All Articles"
+        }) %>      
 
     </div>
 
