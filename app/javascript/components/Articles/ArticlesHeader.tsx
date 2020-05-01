@@ -2,15 +2,19 @@ import React from 'react';
 
 export interface ArticlesHeaderProps {
   title:string,
-  subtitle:string
+  subtitle:string,
+  link:string
 }
  
 const ArticlesHeader: React.FC<ArticlesHeaderProps> = (props) => {
   return ( 
     <div id="articles-header">
-            <h1>{props.title}</h1>
-            <h2>{props.subtitle}</h2>
-        </div>
+      <a href={props.link} >
+        <h1>{props.title}</h1>
+        <h2>{props.subtitle}</h2>
+      </a>
+      <br></br>
+    </div>
   );
 }
  

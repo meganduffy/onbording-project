@@ -1,12 +1,8 @@
 <div class="container">
 
-  <%= link_to root_path do %>
-
-    <%= react_component("Articles/ArticlesHeader", {title: "Demonic Tails", 
-    subtitle: "Has your cat been possessed?"}) %>
-
-  <% end %>
-  <br>
+  <%= react_component("Articles/ArticlesHeader", {title: "Demonic Tails", 
+  subtitle: "Has your cat been possessed?",
+  link: root_path}) %>
 
   <% if @articles %>
 
