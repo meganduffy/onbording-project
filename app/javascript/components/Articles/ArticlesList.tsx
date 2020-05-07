@@ -11,9 +11,14 @@ export default function ArticlesList(props) {
     let display = (<h3>It looks as though there's nothing here yet!</h3>)
 
     function formatDate(date) {
-        let foo = date.toString().split('T')[0]
-        let bar = foo.split('-')
-        return bar[2] + "-" + bar[1] + "-" + bar[0] 
+        let initalDate = date.toString().split('T')[0]
+        let dateArray = initalDate.split('-')
+        return dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0] 
+    }
+
+    function getArticleLink(id) {
+        let baseURL = "http://localhost:3001/articles/"
+        return baseURL + id
     }
 
     if (props.articles) {
@@ -24,9 +29,8 @@ export default function ArticlesList(props) {
                 title={article.title} 
                 content={article.content.substring(0, 300) + "..."}
                 created_at={formatDate(article.created_at)}
-                link={props.link}
-                linkText="View Full Article" 
-                />
+                link={getArticleLink(article.id)}
+                linkText="View Full Article" />
             )}
         </div> 
     }
@@ -34,7 +38,6 @@ export default function ArticlesList(props) {
     return (
         <div>
             {display}
-        </div>
-        
+        </div>      
     )
 }
