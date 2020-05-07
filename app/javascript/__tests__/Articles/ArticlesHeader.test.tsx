@@ -18,12 +18,7 @@ afterEach(() => {
 });
 
 it('renders correctly', ()=>{
-  const tree = renderer.create(<ArticleHeader title='Article Header' subtitle='Ipsum Lorem'
+  const tree = renderer.create(<ArticleHeader title='Article Header' subtitle='Ipsum Lorem' link='google.com'
    />).toJSON();
   expect(tree).toMatchSnapshot();
-});
-
-it( 'renders with a title', ()=>{
-    act( ()=>{render(<ArticleHeader title='Article Header'/>, container)} )
-        expect(container.textContent).toBe("Article Header")
 });

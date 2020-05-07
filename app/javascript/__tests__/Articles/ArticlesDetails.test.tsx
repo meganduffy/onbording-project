@@ -19,11 +19,6 @@ afterEach(() => {
 
 it('renders correctly', ()=>{
   const tree = renderer.create(<ArticleDetails title='New Post' content='Ipsum Lorem'
-  user='Megan' created_at='27 March 2020' />).toJSON();
+  firstName='Megan' link='google.com' linkText='Click Here' created_at='27 March 2020' />).toJSON();
   expect(tree).toMatchSnapshot();
-});
-
-it( 'renders with a title', ()=>{
-    act( ()=>{render(<ArticleDetails title='New Post' />, container)} )
-        expect(container.textContent).toBe("New Post")
 });
