@@ -4,33 +4,8 @@
   subtitle: "Has your cat been possessed?",
   link: root_path}) %>
 
-  <% if @articles %>
-
-    <% @articles.each do |article| %>
-
-      <%= link_to article_path(article) do %>
-
-        
-
-          <%= react_component("Articles/ArticlesDetails", {
-          title: article.title, 
-          content: truncate(article.content, length: 300), 
-          firstName: article.user.first_name, 
-          created_at: article.created_at.strftime("%d %B %Y"),
-          link: article_path(article),
-          linkText:"View Full Article"}) %>
-
-        
-
-      <% end %>
-
-    <% end %>
-
-
-  <% else %>
-
-    <h3>It looks as though there's nothing here yet!</h3>
-
-  <% end %>
+  <%= react_component("Articles/ArticlesList", 
+  articles: @articles, 
+  link: article_path(@articles.ids)) %>
 
 </div>
