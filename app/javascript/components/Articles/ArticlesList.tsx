@@ -13,7 +13,7 @@ export default function ArticlesList(props) {
     function formatDate(date) {
         let initalDate = date.toString().split('T')[0]
         let dateArray = initalDate.split('-')
-        return dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0] 
+        return dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0] 
     }
 
     function getArticleLink(id) {
@@ -28,6 +28,7 @@ export default function ArticlesList(props) {
                 key={index} 
                 title={article.title} 
                 content={article.content.substring(0, 300) + "..."}
+                firstName={article.user.first_name}
                 created_at={formatDate(article.created_at)}
                 link={getArticleLink(article.id)}
                 linkText="View Full Article" />
