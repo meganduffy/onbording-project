@@ -125,7 +125,7 @@ RSpec.describe ArticlesController, type: :controller do
 
         assigned_articles = assigns(:articles)
         assigned_articles_dates = []
-        assigned_articles.each {|article| assigned_articles_dates.append(article["created_at"])}
+        assigned_articles.each { |article| assigned_articles_dates.append(article['created_at']) }
         
         expect(assigned_articles_dates[0]).to be > assigned_articles_dates[1]
       end
@@ -144,7 +144,7 @@ RSpec.describe ArticlesController, type: :controller do
         
         assigned_articles = assigns(:articles)
         assigned_articles_dates = []
-        assigned_articles.each {|article| assigned_articles_dates.append(article["created_at"])}
+        assigned_articles.each { |article| assigned_articles_dates.append(article['created_at']) }
         
         expect(assigned_articles_dates[0]).to be > assigned_articles_dates[1]
       end

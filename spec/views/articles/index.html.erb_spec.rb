@@ -16,8 +16,7 @@ describe 'articles/index.html.erb', type: :view do
                            build_stubbed(:article, title: 'Test2', content: '2. Lorem Ipsum.')])
 
         render
-
-
+        
         expect(rendered).to include('Articles/ArticlesList', 'Articles/ArticlesList')
       end
     end
