@@ -16,7 +16,6 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    # @articles = Article.order(created_at: :desc)
     @articles = Article.all.order(created_at: :desc).includes(:user).as_json(include: { user: { only: [:first_name] } })
   end
 
