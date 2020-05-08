@@ -25,7 +25,7 @@ export default function ArticlesList(props) {
         display = <div>
             {props.articles.map((article, index) => 
                 <ArticlesDetails 
-                key={index} 
+                key={article.id} 
                 title={article.title} 
                 content={article.content.substring(0, 300) + "..."}
                 firstName={article.user.first_name}
