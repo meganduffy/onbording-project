@@ -21,7 +21,7 @@ export default function ArticlesList(props) {
         return baseURL + id
     }
 
-    if (props.articles) {
+    if (props.articles.length >= 1) {
         display = <div>
             {props.articles.map((article, index) => 
                 <ArticlesDetails 
@@ -34,7 +34,7 @@ export default function ArticlesList(props) {
                 linkText="View Full Article" />
             )}
         </div> 
-    }
+    } 
 
     return (
         <div>
