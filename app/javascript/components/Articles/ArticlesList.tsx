@@ -10,12 +10,6 @@ export default function ArticlesList(props) {
 
     let display = (<h3>It looks as though there's nothing here yet!</h3>)
 
-    // function formatDate(date) {
-    //     let initalDate = date.toString().split('T')[0]
-    //     let dateArray = initalDate.split('-')
-    //     return dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0] 
-    // }
-
     function formatDate(date) {
         let msec = Date.parse(date)
         let newDate = new Date(msec)
