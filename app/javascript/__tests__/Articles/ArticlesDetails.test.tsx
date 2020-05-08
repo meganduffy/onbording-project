@@ -18,7 +18,12 @@ afterEach(() => {
 });
 
 it('renders correctly', ()=>{
-  const tree = renderer.create(<ArticleDetails title='New Post' content='Ipsum Lorem'
-  firstName='Megan' link='google.com' linkText='Click Here' created_at='27 March 2020' />).toJSON();
+  const tree = renderer.create(<ArticleDetails 
+    title='New Post' 
+    content='Ipsum Lorem'
+    firstName='Megan' 
+    link='google.com' 
+    linkText='Click Here' 
+    created_at='27 March 2020' />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -2,25 +2,39 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="articles-details"
+  className="outer-article-container"
 >
-  <h3
-    className="articles-title"
-  >
-    New Post
-  </h3>
-  <p>
-    Ipsum Lorem
-  </p>
   <div
-    className="articles-details-info"
+    className="articles-details"
   >
+    <h2
+      className="articles-title"
+    >
+      New Post
+    </h2>
     <p>
-      Megan
+      Ipsum Lorem
     </p>
-    <p>
-      27 March 2020
-    </p>
+    <div
+      className="articles-details-info"
+    >
+      <p>
+        Megan
+         
+      </p>
+      <p>
+        27 March 2020
+      </p>
+    </div>
+  </div>
+  <div
+    className="articles-aside"
+  >
+    <a
+      href="google.com"
+    >
+      Click Here
+    </a>
   </div>
 </div>
 `;

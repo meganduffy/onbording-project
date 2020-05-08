@@ -4,11 +4,16 @@ exports[`renders correctly 1`] = `
 <div
   id="articles-header"
 >
-  <h1>
-    Article Header
-  </h1>
-  <h2>
-    Ipsum Lorem
-  </h2>
+  <a
+    href="google.com"
+  >
+    <h1>
+      Article Header
+    </h1>
+    <h2>
+      Ipsum Lorem
+    </h2>
+  </a>
+  <br />
 </div>
 `;
