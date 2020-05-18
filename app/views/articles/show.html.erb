@@ -13,7 +13,8 @@
             lastName:@article.user.last_name,
             created_at:@article.created_at.strftime("%d %B %Y"),
             link:articles_path,
-            linkText:"View All Articles"
+            linkText:"View All Articles",
+            editLink: "/articles/#{@article.id}/edit"
         }) %>      
 
     </div>
