@@ -3,10 +3,10 @@ import ArticlesDetails from './ArticlesDetails';
 import { array } from "prop-types";
 
 export interface ArticlesListProps {
-    link?:string
+    articles?:any
 }
 
-export default function ArticlesList(props) {
+const ArticlesList: React.FC<ArticlesListProps> = (props) => {
 
     let display = (<h3>It looks as though there's nothing here yet!</h3>)
 
@@ -37,3 +37,5 @@ export default function ArticlesList(props) {
         </div>      
     )
 }
+
+export default ArticlesList;
