@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
         className="articles-aside"
       >
         <a
-          href="http://localhost:3001/articles/1"
+          href="/articles/1"
         >
           View Full Article
         </a>

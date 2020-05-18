@@ -16,11 +16,6 @@ export default function ArticlesList(props) {
         return newDate.toDateString()
     }
 
-    function getArticleLink(id) {
-        let baseURL = "http://localhost:3001/articles/"
-        return baseURL + id
-    }
-
     if (props.articles.length >= 1) {
         display = <div>
             {props.articles.map((article, index) => 
@@ -30,7 +25,7 @@ export default function ArticlesList(props) {
                 content={article.content.substring(0, 300) + "..."}
                 firstName={article.user.first_name}
                 created_at={formatDate(article.created_at)}
-                link={getArticleLink(article.id)}
+                link={`/articles/${article.id}`}
                 linkText="View Full Article" />
             )}
         </div> 
