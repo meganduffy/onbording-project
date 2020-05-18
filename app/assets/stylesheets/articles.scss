@@ -15,9 +15,15 @@
         flex:1;
         display: flex;
         align-items: center;
+        flex-direction: column;
+        justify-content: center;
         background-color:white;
         border-left: 0px;
         padding-left: 10px;
+
+        a {
+            padding-bottom: 15px;
+        }
     }
 
     .articles-details {

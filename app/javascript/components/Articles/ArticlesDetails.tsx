@@ -7,7 +7,8 @@ export interface ArticlesDetailsProps {
     lastName?:string,
     created_at:string,
     link:string,
-    linkText:string
+    linkText:string,
+    editLink:string
 }
 
 const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
@@ -27,6 +28,7 @@ const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
             <div className="articles-aside">
                 <a href={props.link}>{props.linkText}</a>
+                <a href={props.editLink}>Edit Article</a>
             </div>
         </div>
     )

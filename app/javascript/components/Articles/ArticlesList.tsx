@@ -26,7 +26,8 @@ export default function ArticlesList(props) {
                 firstName={article.user.first_name}
                 created_at={formatDate(article.created_at)}
                 link={`/articles/${article.id}`}
-                linkText="View Full Article" />
+                linkText="View Full Article"
+                editLink={`/articles/${article.id}/edit`} />
             )}
         </div> 
     } 
