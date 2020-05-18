@@ -124,6 +124,7 @@ RSpec.describe ArticlesController, type: :controller do
         get :index
 
         assigned_articles = assigns(:articles)
+        binding.pry
         assigned_articles_dates = assigned_articles[0]['created_at']
         
         expect(assigned_articles_dates[0]).to be > assigned_articles_dates[1]
