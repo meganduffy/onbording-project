@@ -6,7 +6,7 @@ describe 'articles/index.html.erb', type: :view do
 
         render
 
-        expect(rendered).to include('Articles/ArticlesDetails')
+        expect(rendered).to include('Articles/ArticlesList')
       end
     end
 
@@ -16,16 +16,8 @@ describe 'articles/index.html.erb', type: :view do
                            build_stubbed(:article, title: 'Test2', content: '2. Lorem Ipsum.')])
 
         render
-
-        expect(rendered).to include('Articles/ArticlesDetails', 'Articles/ArticlesDetails')
-      end
-    end
-
-    context 'if there are no articles' do
-      it 'displays no articles message' do
-        render
-
-        expect(rendered).to have_content("It looks as though there's nothing here yet!")
+        
+        expect(rendered).to include('Articles/ArticlesList', 'Articles/ArticlesList')
       end
     end
 

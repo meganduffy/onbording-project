@@ -1,27 +1,10 @@
 <div class="container">
 
   <%= react_component("Articles/ArticlesHeader", {title: "Demonic Tails", 
-  subtitle: "Has your cat been possessed?"}) %>
-  <br>
+  subtitle: "Has your cat been possessed?",
+  link: root_path}) %>
 
-  <% if @articles %>
-
-    <% @articles.each do |article| %>
-
-      <%= react_component("Articles/ArticlesDetails", {title: article.title, 
-      content: truncate(article.content, length: 300), 
-      user: article.user.first_name, 
-      created_at: article.created_at.strftime("%d %B %Y")}) %>
-
-      <%= link_to 'View Full Article', article_path(article) %>
-
-    <% end %>
-
-
-  <% else %>
-
-    <h3>It looks as though there's nothing here yet!</h3>
-
-  <% end %>
+  <%= react_component("Articles/ArticlesList", 
+  articles: @articles) %>
 
 </div>

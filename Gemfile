@@ -38,6 +38,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta4'
   gem "factory_bot_rails"
   gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-nav'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'capybara', '>= 2.15'
   gem 'rubocop', require: false

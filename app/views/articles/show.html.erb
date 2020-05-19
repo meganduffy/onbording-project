@@ -1,12 +1,20 @@
 <div class="container">
 
-    <h1><%= @article.title %></h1>
+    <%= react_component("Articles/ArticlesHeader", {title: "Demonic Tails", 
+    subtitle: "Has your cat been possessed?",
+    link:root_path}) %>
 
-    <p><%= @article.content %></p>
+    <div class="outer-article-container">
 
-    <p id="articles-user"><%= @article.user.first_name %> <%= @article.user.last_name %></p>
-    <p id="articles-created-at"><%= @article.created_at.strftime("%d %B %Y") %></p>
+        <%= react_component("Articles/ArticlesDetails", {
+            title:@article.title,
+            content:@article.content,
+            firstName:@article.user.first_name,
+            lastName:@article.user.last_name,
+            created_at:@article.created_at.strftime("%d %B %Y"),
+            link:articles_path,
+            linkText:"View All Articles"
+        }) %>      
 
-    <%= link_to "< All Articles", articles_path %>
-
+    </div>
 </div>
