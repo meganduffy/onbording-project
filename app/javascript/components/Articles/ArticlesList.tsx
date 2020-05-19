@@ -3,7 +3,8 @@ import ArticlesDetails from './ArticlesDetails';
 import { array } from "prop-types";
 
 export interface ArticlesListProps {
-    link?:string
+    link?:string,
+    currentUser:any
 }
 
 export default function ArticlesList(props) {
@@ -27,7 +28,8 @@ export default function ArticlesList(props) {
                 created_at={formatDate(article.created_at)}
                 link={`/articles/${article.id}`}
                 linkText="View Full Article"
-                editLink={`/articles/${article.id}/edit`} />
+                editLink={`/articles/${article.id}/edit`}
+                currentUser={props.currentUser} />
             )}
         </div> 
     } 

@@ -8,10 +8,16 @@ export interface ArticlesDetailsProps {
     created_at:string,
     link:string,
     linkText:string,
-    editLink?:string
+    editLink?:string,
+    currentUser:any
 }
 
 const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
+
+    if (props.currentUser) {
+        let loggedInDisplay = (<a href={props.editLink}>Edit Article</a> )
+    }
+
     return (
         
         <div className="outer-article-container">
@@ -27,8 +33,8 @@ const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
             </div>
 
             <div className="articles-aside">
-                <a href={props.link}>{props.linkText}</a>
-                <a href={props.editLink}>Edit Article</a>
+                <a href={props.link}>{props.linkText}</a>        
+                {loggedInDisplay}
             </div>
         </div>
     )

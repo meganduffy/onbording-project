@@ -14,7 +14,8 @@
             created_at:@article.created_at.strftime("%d %B %Y"),
             link:articles_path,
             linkText:"View All Articles",
-            editLink: "/articles/#{@article.id}/edit"
+            editLink: "/articles/#{@article.id}/edit",
+            currentUser: current_user
         }) %>      
 
     </div>
