@@ -24,6 +24,7 @@ it('renders correctly', ()=>{
     firstName='Megan' 
     link='google.com' 
     linkText='Click Here' 
-    created_at='27 March 2020' />).toJSON();
+    created_at='27 March 2020' 
+    editLink='/articles/3/edit'/>).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -37,6 +37,11 @@ exports[`renders correctly 1`] = `
         >
           View Full Article
         </a>
+        <a
+          href="/articles/1/edit"
+        >
+          Edit Article
+        </a>
       </div>
     </div>
   </div>

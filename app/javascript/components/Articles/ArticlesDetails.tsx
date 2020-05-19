@@ -8,7 +8,7 @@ export interface ArticlesDetailsProps {
     created_at:string,
     link:string,
     linkText:string,
-    editLink:string
+    editLink?:string
 }
 
 const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
