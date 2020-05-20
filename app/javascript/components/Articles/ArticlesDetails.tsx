@@ -9,15 +9,17 @@ export interface ArticlesDetailsProps {
     link:string,
     linkText:string,
     editLink?:string,
-    currentUser:number
+    currentUser?:number
 }
 
 const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
     let loggedInDisplay = null
 
-    if (props.currentUser) {
-        let loggedInDisplay = (<a href={props.editLink}>Edit Article</a> )
+    console.log(props.currentUser)
+
+    if (props.currentUser > 0) {
+        loggedInDisplay = (<a href={props.editLink}>Edit Article</a> )
     } 
 
     return (
