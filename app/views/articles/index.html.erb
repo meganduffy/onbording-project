@@ -6,6 +6,6 @@
 
   <%= react_component("Articles/ArticlesList", 
   articles: @articles,
-  currentUser: current_user) %>
+  currentUser: current_user&.id) %>
 
 </div>

@@ -15,8 +15,7 @@
             link:articles_path,
             linkText:"View All Articles",
             editLink: "/articles/#{@article.id}/edit",
-            currentUser: current_user
-        }) %>      
-
+            currentUser: current_user&.id
+        }) %>
     </div>
 </div>
