@@ -1,40 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
-<div
-  className="outer-article-container"
->
+exports[`ArticleDetails Snapshots should render the Article Details when logged in 1`] = `
+<div>
   <div
-    className="articles-details"
+    class="outer-article-container"
   >
-    <h2
-      className="articles-title"
-    >
-      New Post
-    </h2>
-    <p>
-      Ipsum Lorem
-    </p>
     <div
-      className="articles-details-info"
+      class="articles-details"
     >
+      <h2
+        class="articles-title"
+      >
+        mechanism momentum museum minimum mushroom
+      </h2>
       <p>
-        Megan
-         
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-      <p>
-        27 March 2020
-      </p>
+      <div
+        class="articles-details-info"
+      >
+        <p>
+          Megan
+           
+          Duffy
+        </p>
+        <p>
+          27 March 2020
+        </p>
+      </div>
+    </div>
+    <div
+      class="articles-aside"
+    >
+      <a
+        href="/articles"
+      >
+        View All Articles
+      </a>
+      <a
+        href="/articles/3/edit"
+      >
+        Edit Article
+      </a>
     </div>
   </div>
+</div>
+`;
+
+exports[`ArticleDetails Snapshots should render the Article Details when logged out 1`] = `
+<div>
   <div
-    className="articles-aside"
+    class="outer-article-container"
   >
-    <a
-      href="google.com"
+    <div
+      class="articles-details"
     >
-      Click Here
-    </a>
+      <h2
+        class="articles-title"
+      >
+        mechanism momentum museum minimum mushroom
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <div
+        class="articles-details-info"
+      >
+        <p>
+          Megan
+           
+          Duffy
+        </p>
+        <p>
+          27 March 2020
+        </p>
+      </div>
+    </div>
+    <div
+      class="articles-aside"
+    >
+      <a
+        href="/articles"
+      >
+        View All Articles
+      </a>
+    </div>
   </div>
 </div>
 `;
