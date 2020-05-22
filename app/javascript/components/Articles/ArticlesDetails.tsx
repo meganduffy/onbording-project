@@ -5,7 +5,7 @@ export interface ArticlesDetailsProps {
     content:string,
     firstName:string,
     lastName?:string,
-    created_at:string,
+    createdAt:string,
     link:string,
     linkText:string,
     editLink?:string,
@@ -15,8 +15,6 @@ export interface ArticlesDetailsProps {
 const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
     let loggedInDisplay = null
-
-    console.log(props.currentUser)
 
     if (props.currentUser > 0) {
         loggedInDisplay = (<a href={props.editLink}>Edit Article</a> )
@@ -32,7 +30,7 @@ const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
                 <div className="articles-details-info">
                     <p>{props.firstName} {props.lastName}</p>
-                    <p>{props.created_at}</p>
+                    <p>{props.createdAt}</p>
                 </div>
             </div>
 
