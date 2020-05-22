@@ -4,6 +4,7 @@ exports[`ArticleDetails Snapshots should render the Article Details when logged 
 <div>
   <div
     class="outer-article-container"
+    data-testid="article-details"
   >
     <div
       class="articles-details"
@@ -51,6 +52,7 @@ exports[`ArticleDetails Snapshots should render the Article Details when logged 
 <div>
   <div
     class="outer-article-container"
+    data-testid="article-details"
   >
     <div
       class="articles-details"

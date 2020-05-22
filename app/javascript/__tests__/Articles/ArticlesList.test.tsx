@@ -1,6 +1,12 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render, getByText } from "@testing-library/react";
+import {
+  render,
+  getByText,
+  getByTestId,
+  queryByTestId,
+  queryAllByTestId,
+} from "@testing-library/react";
 import ArticlesList from "../../components/Articles/ArticlesList";
 import ArticleDetails from "../../components/Articles/ArticlesDetails";
 
@@ -43,7 +49,7 @@ const expectedCurrentUser = 1;
 
 describe("ArticleList", () => {
   describe("Snapshots", () => {
-    test('should render the Article List when there is only one article', () => {
+    test("should render the Article List when there is only one article", () => {
       const { container } = render(
         <ArticlesList articles={expectedSinleArticle} />
       );
@@ -65,6 +71,17 @@ describe("ArticleList", () => {
         />
       );
       expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe("Props", () => {
+    test("should render an Article Details component for each article passed to it", () => {
+      const { container } = render(
+        <ArticlesList articles={expectedMultiArticles} />
+      );
+      expect(
+        queryAllByTestId(container, "article-details").length
+      ).toEqual(2);
     });
   });
 });

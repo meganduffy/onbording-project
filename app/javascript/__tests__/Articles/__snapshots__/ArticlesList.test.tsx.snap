@@ -6,6 +6,7 @@ exports[`ArticleList Snapshots should render the Article List when logged in 1`]
     <div>
       <div
         class="outer-article-container"
+        data-testid="article-details"
       >
         <div
           class="articles-details"
@@ -47,6 +48,7 @@ exports[`ArticleList Snapshots should render the Article List when logged in 1`]
       </div>
       <div
         class="outer-article-container"
+        data-testid="article-details"
       >
         <div
           class="articles-details"
@@ -97,6 +99,7 @@ exports[`ArticleList Snapshots should render the Article List when logged out 1`
     <div>
       <div
         class="outer-article-container"
+        data-testid="article-details"
       >
         <div
           class="articles-details"
@@ -133,6 +136,7 @@ exports[`ArticleList Snapshots should render the Article List when logged out 1`
       </div>
       <div
         class="outer-article-container"
+        data-testid="article-details"
       >
         <div
           class="articles-details"
@@ -178,6 +182,7 @@ exports[`ArticleList Snapshots should render the Article List when there is only
     <div>
       <div
         class="outer-article-container"
+        data-testid="article-details"
       >
         <div
           class="articles-details"

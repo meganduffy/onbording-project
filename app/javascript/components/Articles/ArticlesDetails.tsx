@@ -22,7 +22,7 @@ const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
     return (
         
-        <div className="outer-article-container">
+        <div className="outer-article-container" data-testid="article-details">
             <div className="articles-details">
                 <h2 className="articles-title">{props.title}</h2>
 
