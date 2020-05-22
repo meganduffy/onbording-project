@@ -1,44 +1,79 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
-import "@testing-library/jest-dom/extend-expect";
-import renderer from 'react-test-renderer';
+import '@testing-library/jest-dom/extend-expect';
+import { render, getByText } from "@testing-library/react";
 import ArticleDetails from '../../components/Articles/ArticlesDetails';
 
-let container = null;
+const expectedTitle='mechanism momentum museum minimum mushroom' 
+const expectedContent='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+const expectedFirstName='Megan' 
+const expectedLink='/articles' 
+const expectedLinkText='View All Articles' 
+const expectedCreatedAt='27 March 2020' 
+const expectedEditLink='/articles/3/edit'
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
+describe('ArticleDetails', () => {
+  describe('Snapshots', () => {
+    test('should render the Article Details', () => {
+        const { container } = render(
+          <ArticleDetails title={expectedTitle}
+          content={expectedContent}
+          firstName={expectedFirstName}
+          link={expectedLink}
+          linkText={expectedLinkText}
+          createdAt={expectedCreatedAt}
+          editLink={expectedEditLink} />
+        );
+        expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('Props', () => {
+    test('should render the text passed in', () => {
+        const { container } = render(
+          <ArticleDetails title={expectedTitle}
+          content={expectedContent}
+          firstName={expectedFirstName}
+          link={expectedLink}
+          linkText={expectedLinkText}
+          createdAt={expectedCreatedAt}
+          editLink={expectedEditLink} />
+        );
+        expect(container).toHaveTextContent(expectedTitle);
+        expect(container).toHaveTextContent(expectedContent);
+        expect(container).toHaveTextContent(expectedFirstName);
+        expect(container).toHaveTextContent(expectedLinkText);
+        expect(container).toHaveTextContent(expectedCreatedAt);
+      });
+
+      test('should render the hrefs passed in', () => {
+        
+        const { getByText } = render(
+          <ArticleDetails title={expectedTitle}
+          content={expectedContent}
+          firstName={expectedFirstName}
+          link={expectedLink}
+          linkText={expectedLinkText}
+          createdAt={expectedCreatedAt} />
+        );
+        expect(getByText(expectedLinkText).href).toBe(`http://localhost${expectedLink}`);
+      });
+
+      test('should render the edit option text if a current user is passed', () => {
+        const expectedCurrentUser = 3  
+        const expectedEditLinkText = 'Edit Article'
+
+        const { container, getByText } = render(
+          <ArticleDetails title={expectedTitle}
+          content={expectedContent}
+          firstName={expectedFirstName}
+          link={expectedLink}
+          linkText={expectedLinkText}
+          createdAt={expectedCreatedAt}
+          currentUser={expectedCurrentUser}
+          editLink={expectedEditLink} />
+        );
+        expect(container).toHaveTextContent(expectedEditLinkText);
+        expect(getByText(expectedEditLinkText).href).toBe(`http://localhost${expectedEditLink}`);
+      });
+  });
 });
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-it('renders correctly', ()=>{
-  const tree = renderer.create(<ArticleDetails 
-    title='New Post' 
-    content='Ipsum Lorem'
-    firstName='Megan' 
-    link='google.com' 
-    linkText='Click Here' 
-    created_at='27 March 2020' 
-    editLink='/articles/3/edit'/>).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-it('displays an edit option when logged in', ()=>{
-  const tree = renderer.create(<ArticleDetails 
-    title='New Post' 
-    content='Ipsum Lorem'
-    firstName='Megan' 
-    link='google.com' 
-    linkText='Click Here' 
-    created_at='27 March 2020' 
-    editLink='/articles/3/edit'
-    currentUser={2}/>).toJSON();
-    expect(tree).toMatch(/Edit Article/
-})
