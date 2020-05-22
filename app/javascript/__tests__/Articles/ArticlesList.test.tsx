@@ -79,9 +79,9 @@ describe("ArticleList", () => {
       const { container } = render(
         <ArticlesList articles={expectedMultiArticles} />
       );
-      expect(
-        queryAllByTestId(container, "article-details").length
-      ).toEqual(2);
+      expect(queryAllByTestId(container, "article-details").length).toEqual(
+        expectedMultiArticles.length
+      );
     });
   });
 });
