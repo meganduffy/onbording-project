@@ -40,5 +40,5 @@ it('displays an edit option when logged in', ()=>{
     created_at='27 March 2020' 
     editLink='/articles/3/edit'
     currentUser={2}/>).toJSON();
-    expect(tree).toMatch(/Edit Article/)
+    expect(tree).toMatch(/Edit Article/
 })
