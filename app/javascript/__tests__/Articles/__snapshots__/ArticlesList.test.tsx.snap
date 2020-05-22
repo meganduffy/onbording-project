@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleList Snapshots should render the Article List when logged in 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="outer-article-container"
+      >
+        <div
+          class="articles-details"
+        >
+          <h2
+            class="articles-title"
+          >
+            mechanism momentum museum minimum mushroom
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu...
+          </p>
+          <div
+            class="articles-details-info"
+          >
+            <p>
+              Megan
+               
+            </p>
+            <p>
+              Invalid Date
+            </p>
+          </div>
+        </div>
+        <div
+          class="articles-aside"
+        >
+          <a
+            href="/articles/1"
+          >
+            View Full Article
+          </a>
+          <a
+            href="/articles/1/edit"
+          >
+            Edit Article
+          </a>
+        </div>
+      </div>
+      <div
+        class="outer-article-container"
+      >
+        <div
+          class="articles-details"
+        >
+          <h2
+            class="articles-title"
+          >
+            green vegetable saw comparison
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu...
+          </p>
+          <div
+            class="articles-details-info"
+          >
+            <p>
+              Matthew
+               
+            </p>
+            <p>
+              Invalid Date
+            </p>
+          </div>
+        </div>
+        <div
+          class="articles-aside"
+        >
+          <a
+            href="/articles/2"
+          >
+            View Full Article
+          </a>
+          <a
+            href="/articles/2/edit"
+          >
+            Edit Article
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ArticleList Snapshots should render the Article List when logged out 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="outer-article-container"
+      >
+        <div
+          class="articles-details"
+        >
+          <h2
+            class="articles-title"
+          >
+            mechanism momentum museum minimum mushroom
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu...
+          </p>
+          <div
+            class="articles-details-info"
+          >
+            <p>
+              Megan
+               
+            </p>
+            <p>
+              Invalid Date
+            </p>
+          </div>
+        </div>
+        <div
+          class="articles-aside"
+        >
+          <a
+            href="/articles/1"
+          >
+            View Full Article
+          </a>
+        </div>
+      </div>
+      <div
+        class="outer-article-container"
+      >
+        <div
+          class="articles-details"
+        >
+          <h2
+            class="articles-title"
+          >
+            green vegetable saw comparison
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu...
+          </p>
+          <div
+            class="articles-details-info"
+          >
+            <p>
+              Matthew
+               
+            </p>
+            <p>
+              Invalid Date
+            </p>
+          </div>
+        </div>
+        <div
+          class="articles-aside"
+        >
+          <a
+            href="/articles/2"
+          >
+            View Full Article
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ArticleList Snapshots should render the Article List when there is only one article 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="outer-article-container"
+      >
+        <div
+          class="articles-details"
+        >
+          <h2
+            class="articles-title"
+          >
+            mechanism momentum museum minimum mushroom
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu...
+          </p>
+          <div
+            class="articles-details-info"
+          >
+            <p>
+              Megan
+               
+            </p>
+            <p>
+              Invalid Date
+            </p>
+          </div>
+        </div>
+        <div
+          class="articles-aside"
+        >
+          <a
+            href="/articles/1"
+          >
+            View Full Article
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
