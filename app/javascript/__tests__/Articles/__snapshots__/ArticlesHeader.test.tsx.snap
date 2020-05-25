@@ -6,7 +6,8 @@ exports[`ArticlesHeader Snapshots should render as expected 1`] = `
     id="articles-header"
   >
     <a
-      href="http://localhost"
+      data-testid="article-header-link"
+      href="http://localhost/"
     >
       <h1>
         Demonic Cats
