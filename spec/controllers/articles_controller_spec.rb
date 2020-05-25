@@ -177,4 +177,75 @@ RSpec.describe ArticlesController, type: :controller do
       end
     end
   end
+
+  describe 'GET #edit' do
+    context 'when user is logged in' do
+      before(:each) do
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+      it 'returns a 200 OK HTTP response' do
+        article = create(:article)
+        get :edit, params: { id: article.id }
+        expect(response.status).to eq(200)
+      end
+    end
+
+    context 'when user is not logged in' do
+      it 'returns a 302 Redirect HTTP response' do
+        article = create(:article)
+        get :edit, params: { id: article.id }
+        expect(response.status).to eq(302)
+      end
+
+      it 'redirects to the login page' do
+        article = create(:article)
+        get :edit, params: { id: article.id }
+        expect(response).to redirect_to login_path
+      end
+    end
+  end
+
+  describe 'PATCH #update' do
+    context 'when user is logged in' do
+      let(:article) { create(:article) }
+
+      before(:each) do
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+      
+      context 'with correct params' do
+        it 'updates the details of an article' do
+          article_params = {
+            id: article.id,
+            article: { id: article.id, title: 'New Title', content: 'New content.', user_id: user.id  }
+          }      
+          patch :update, params: article_params
+          article.reload
+          expect(article.title).to eq('New Title')
+          expect(article.content).to eq('New content.')
+        end
+
+        it 'redirects the user back to the articles list page' do
+          article_params = {
+            id: article.id,
+            article: { id: article.id, title: 'New Title', content: 'New content.', user_id: user.id  }
+          }      
+          patch :update, params: article_params
+          expect(response).to redirect_to articles_path
+        end
+      end
+    end 
+
+    context 'when user is not logged in' do
+      let(:article) { create(:article) }
+      it 'redirects to the login page' do
+        article_params = {
+          id: article.id,
+          article: { id: article.id, title: 'New Title', content: 'New content.', user_id: nil  }
+        } 
+        patch :update, params: article_params
+        expect(response).to redirect_to login_path
+      end
+    end
+  end
 end
