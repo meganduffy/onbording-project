@@ -2,13 +2,9 @@ import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import {
   render,
-  getByText,
-  getByTestId,
-  queryByTestId,
   queryAllByTestId,
 } from "@testing-library/react";
 import ArticlesList from "../../components/Articles/ArticlesList";
-import ArticleDetails from "../../components/Articles/ArticlesDetails";
 
 const expectedSinleArticle = [
   {

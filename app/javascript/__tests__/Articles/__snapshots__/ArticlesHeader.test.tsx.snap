@@ -1,19 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
-<div
-  id="articles-header"
->
-  <a
-    href="google.com"
+exports[`ArticlesHeader Snapshots should render as expected 1`] = `
+<div>
+  <div
+    id="articles-header"
   >
-    <h1>
-      Article Header
-    </h1>
-    <h2>
-      Ipsum Lorem
-    </h2>
-  </a>
-  <br />
+    <a
+      href="http://localhost"
+    >
+      <h1>
+        Demonic Cats
+      </h1>
+      <h2>
+        And the people who love them.
+      </h2>
+    </a>
+    <br />
+  </div>
 </div>
 `;
