@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import ArticlesDetails from './ArticlesDetails';
-import { array } from "prop-types";
 
 export interface ArticlesListProps {
     currentUser:any,
     articles?:any
 }
 
+// console.log(props.articles.map((article, index) => typeof(article.createdAt))
+
 const ArticlesList: React.FC<ArticlesListProps> = (props) => {
 
     let display = (<h3>It looks as though there's nothing here yet!</h3>)
+
+    function formatDate(date) {
+        let msec = Date.parse(date)
+        let newDate = new Date(msec)
+        return newDate.toDateString()
+    }
 
     if (props.articles.length >= 1) {
         display = <div>
@@ -19,7 +26,7 @@ const ArticlesList: React.FC<ArticlesListProps> = (props) => {
                 title={article.title} 
                 content={article.content.substring(0, 300) + "..."}
                 firstName={article.user.first_name}
-                createdAt={article.createdAt}
+                createdAt={formatDate(article.created_at)}
                 link={`/articles/${article.id}`}
                 linkText="View Full Article"
                 editLink={`/articles/${article.id}/edit`}
@@ -27,6 +34,8 @@ const ArticlesList: React.FC<ArticlesListProps> = (props) => {
             )}
         </div> 
     } 
+
+    
 
     return (
         <div>

@@ -290,7 +290,7 @@ DEPENDENCIES
   pry
   pry-nav
   pry-remote
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.2, >= 6.0.2.1)
   rails-controller-testing
   react-rails
