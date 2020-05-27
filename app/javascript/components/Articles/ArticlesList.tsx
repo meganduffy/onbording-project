@@ -11,12 +11,6 @@ export default function ArticlesList(props) {
 
     let display = (<h3>It looks as though there's nothing here yet!</h3>)
 
-    function formatDate(date) {
-        let msec = Date.parse(date)
-        let newDate = new Date(msec)
-        return newDate.toDateString()
-    }
-
     if (props.articles.length >= 1) {
         display = <div>
             {props.articles.map((article, index) => 
@@ -25,7 +19,7 @@ export default function ArticlesList(props) {
                 title={article.title} 
                 content={article.content.substring(0, 300) + "..."}
                 firstName={article.user.first_name}
-                createdAt={formatDate(article.createdAt)}
+                createdAt={article.createdAt}
                 link={`/articles/${article.id}`}
                 linkText="View Full Article"
                 editLink={`/articles/${article.id}/edit`}
