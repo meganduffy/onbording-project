@@ -107,5 +107,21 @@ describe("ArticleDetails", () => {
         `http://localhost${expectedEditLink}`
       );
     });
+
+    test('should not render the edit option text if a current user is not passed', () => {
+      const { container } = render(
+        <ArticleDetails
+          title={expectedTitle}
+          content={expectedContent}
+          firstName={expectedFirstName}
+          lastName={expectedLastName}
+          link={expectedLink}
+          linkText={expectedLinkText}
+          createdAt={expectedCreatedAt}
+          editLink={expectedEditLink}
+        />
+      );
+      expect(container).not.toHaveTextContent(expectedEditLinkText);
+    });
   });
 });
