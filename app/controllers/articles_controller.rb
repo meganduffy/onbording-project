@@ -37,6 +37,20 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.discard
+
+    redirect_to articles
+  end
+
+  def recover
+    @article = Article.find(params[:id])
+    @article.undiscard
+
+    redirect_back(fallback_location: root_path)
+  end
+
 private
 
   def article_params
