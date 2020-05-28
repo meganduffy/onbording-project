@@ -9,6 +9,7 @@ export interface ArticlesDetailsProps {
     link:string,
     linkText:string,
     editLink?:string,
+    deleteLink?:string,
     currentUser?:number
 }
 
@@ -20,7 +21,7 @@ const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
     if (props.currentUser > 0) {
         editArticle = (<a href={props.editLink}>Edit Article</a> )
-        deleteArticle = (<a href='/'>Delete Article</a>)
+        deleteArticle = (<a href={props.deleteLink}>Delete Article</a>)
     } 
 
     return (

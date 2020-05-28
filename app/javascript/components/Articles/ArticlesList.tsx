@@ -28,6 +28,7 @@ const ArticlesList: React.FC<ArticlesListProps> = (props) => {
                 link={`/articles/${article.id}`}
                 linkText="View Full Article"
                 editLink={`/articles/${article.id}/edit`}
+                deleteLink={`/articles/${article.id}/delete`}
                 currentUser={props.currentUser} />
             )}
         </div> 
