@@ -44,6 +44,11 @@ exports[`ArticleList Snapshots should render the Article List when logged in 1`]
           >
             Edit Article
           </a>
+          <a
+            href="/"
+          >
+            Delete Article
+          </a>
         </div>
       </div>
       <div
@@ -85,6 +90,11 @@ exports[`ArticleList Snapshots should render the Article List when logged in 1`]
             href="/articles/2/edit"
           >
             Edit Article
+          </a>
+          <a
+            href="/"
+          >
+            Delete Article
           </a>
         </div>
       </div>
