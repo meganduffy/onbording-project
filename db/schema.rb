@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_114143) do
+ActiveRecord::Schema.define(version: 2020_05_28_082516) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 2020_05_27_114143) do
     t.string "first_name"
     t.string "email"
     t.string "password_digest"
+    t.integer "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_users_on_article_id"
   end
 
   add_foreign_key "articles", "users"
