@@ -6,8 +6,6 @@ export interface ArticlesListProps {
     articles?:any
 }
 
-// console.log(props.articles.map((article, index) => typeof(article.createdAt))
-
 const ArticlesList: React.FC<ArticlesListProps> = (props) => {
 
     let display = (<h3>It looks as though there's nothing here yet!</h3>)
