@@ -1,26 +1,50 @@
-import React from 'react';
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
-import renderer from 'react-test-renderer';
-import ArticleHeader from '../../components/Articles/ArticlesHeader';
+import React from "react";
+import "@testing-library/jest-dom/extend-expect";
+import { render, queryByTestId } from "@testing-library/react";
+import ArticlesHeader from "../../components/Articles/ArticlesHeader";
 
-let container = null;
+const expectedTitle = "Demonic Cats";
+const expectedSubtitle = "And the people who love them.";
+const expectedLink = "http://localhost/";
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+describe("ArticlesHeader", () => {
+  describe("Snapshots", () => {
+    test("should render as expected", () => {
+      const { container } = render(
+        <ArticlesHeader
+          title={expectedTitle}
+          subtitle={expectedSubtitle}
+          link={expectedLink}
+        />
+      );
+      expect(container).toMatchSnapshot();
+    });
+  });
 
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+  describe("Props", () => {
+    test("should render the text passed to it", () => {
+      const { container } = render(
+        <ArticlesHeader
+          title={expectedTitle}
+          subtitle={expectedSubtitle}
+          link={expectedLink}
+        />
+      );
+      expect(container.querySelector('div#articles-header h1')).toHaveTextContent(expectedTitle);
+      expect(container.querySelector('div#articles-header h2')).toHaveTextContent(expectedSubtitle);
+    });
 
-it('renders correctly', ()=>{
-  const tree = renderer.create(<ArticleHeader 
-    title='Article Header' 
-    subtitle='Ipsum Lorem' 
-    link='google.com' />).toJSON();
-  expect(tree).toMatchSnapshot();
+    test("should render the href passed to it", () => {
+      const { container } = render(
+        <ArticlesHeader
+          title={expectedTitle}
+          subtitle={expectedSubtitle}
+          link={expectedLink}
+        />
+      );
+      expect(queryByTestId(container, "article-header-link").href).toBe(
+        expectedLink
+      );
+    });
+  });
 });

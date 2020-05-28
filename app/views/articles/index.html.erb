@@ -5,6 +5,7 @@
   link: root_path}) %>
 
   <%= react_component("Articles/ArticlesList", 
-  articles: @articles) %>
+  articles: @articles,
+  currentUser: current_user&.id) %>
 
 </div>

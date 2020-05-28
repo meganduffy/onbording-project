@@ -1,5 +1,16 @@
 describe 'articles/index.html.erb', type: :view do
   describe 'GET #index' do
+
+    before do
+      controller.singleton_class.class_eval do
+        protected
+        def current_user
+          FactoryBot.build_stubbed(:user)
+        end
+        helper_method :current_user
+      end
+    end
+
     context 'if there is one article' do
       it 'displays the Article Component' do
         assign(:articles, [build_stubbed(:article, title: 'Test', content: 'Lorem Ipsum.')])

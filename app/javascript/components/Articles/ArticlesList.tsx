@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ArticlesDetails from './ArticlesDetails';
-import { array } from "prop-types";
 
 export interface ArticlesListProps {
+    currentUser:any,
     articles?:any
 }
 
@@ -24,12 +24,16 @@ const ArticlesList: React.FC<ArticlesListProps> = (props) => {
                 title={article.title} 
                 content={article.content.substring(0, 300) + "..."}
                 firstName={article.user.first_name}
-                created_at={formatDate(article.created_at)}
+                createdAt={formatDate(article.created_at)}
                 link={`/articles/${article.id}`}
-                linkText="View Full Article" />
+                linkText="View Full Article"
+                editLink={`/articles/${article.id}/edit`}
+                currentUser={props.currentUser} />
             )}
         </div> 
     } 
+
+    
 
     return (
         <div>

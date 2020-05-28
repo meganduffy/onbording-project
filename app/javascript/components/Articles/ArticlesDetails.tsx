@@ -5,15 +5,24 @@ export interface ArticlesDetailsProps {
     content:string,
     firstName:string,
     lastName?:string,
-    created_at:string,
+    createdAt:string,
     link:string,
-    linkText:string
+    linkText:string,
+    editLink?:string,
+    currentUser?:number
 }
 
 const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
+
+    let loggedInDisplay = null
+
+    if (props.currentUser > 0) {
+        loggedInDisplay = (<a href={props.editLink}>Edit Article</a> )
+    } 
+
     return (
         
-        <div className="outer-article-container">
+        <div className="outer-article-container" data-testid="article-details">
             <div className="articles-details">
                 <h2 className="articles-title">{props.title}</h2>
 
@@ -21,12 +30,13 @@ const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
                 <div className="articles-details-info">
                     <p>{props.firstName} {props.lastName}</p>
-                    <p>{props.created_at}</p>
+                    <p>{props.createdAt}</p>
                 </div>
             </div>
 
             <div className="articles-aside">
-                <a href={props.link}>{props.linkText}</a>
+                <a href={props.link}>{props.linkText}</a>        
+                {loggedInDisplay}
             </div>
         </div>
     )
