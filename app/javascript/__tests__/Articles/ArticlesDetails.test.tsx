@@ -63,12 +63,12 @@ describe("ArticleDetails", () => {
           createdAt={expectedCreatedAt}
         />
       );
-      expect(container).toHaveTextContent(expectedTitle);
-      expect(container).toHaveTextContent(expectedContent);
-      expect(container).toHaveTextContent(expectedFirstName);
-      expect(container).toHaveTextContent(expectedLastName);
-      expect(container).toHaveTextContent(expectedLinkText);
-      expect(container).toHaveTextContent(expectedCreatedAt);
+      expect(container.querySelector('div.articles-details h2')).toHaveTextContent(expectedTitle);
+      expect(container.querySelector('div.articles-details p')).toHaveTextContent(expectedContent);
+      expect(container.querySelector('div.articles-details-info')).toHaveTextContent(expectedFirstName);
+      expect(container.querySelector('div.articles-details-info')).toHaveTextContent(expectedLastName);
+      expect(container.querySelector('div.articles-aside')).toHaveTextContent(expectedLinkText);
+      expect(container.querySelector('div.articles-details-info')).toHaveTextContent(expectedCreatedAt);
     });
 
     test("should render the hrefs passed in", () => {
@@ -102,7 +102,7 @@ describe("ArticleDetails", () => {
           editLink={expectedEditLink}
         />
       );
-      expect(container).toHaveTextContent(expectedEditLinkText);
+      expect(container.querySelector('div.articles-aside')).toHaveTextContent(expectedEditLinkText);
       expect(getByText(expectedEditLinkText).href).toBe(
         `http://localhost${expectedEditLink}`
       );
@@ -121,7 +121,7 @@ describe("ArticleDetails", () => {
           editLink={expectedEditLink}
         />
       );
-      expect(container).not.toHaveTextContent(expectedEditLinkText);
+      expect(container.querySelector('div.articles-aside')).not.toHaveTextContent(expectedEditLinkText);
     });
   });
 });

@@ -30,8 +30,8 @@ describe("ArticlesHeader", () => {
           link={expectedLink}
         />
       );
-      expect(container).toHaveTextContent(expectedTitle);
-      expect(container).toHaveTextContent(expectedSubtitle);
+      expect(container.querySelector('div#articles-header h1')).toHaveTextContent(expectedTitle);
+      expect(container.querySelector('div#articles-header h2')).toHaveTextContent(expectedSubtitle);
     });
 
     test("should render the href passed to it", () => {
