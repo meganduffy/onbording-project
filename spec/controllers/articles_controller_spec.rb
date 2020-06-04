@@ -53,7 +53,7 @@ RSpec.describe ArticlesController, type: :controller do
 
         it 'redirects to homepage' do
           post :create, params: params
-          expect(response).to redirect_to root_path
+          expect(response).to redirect_to articles_path
         end
       end
 
