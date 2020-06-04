@@ -43,9 +43,7 @@ exports[`ArticleDetails Snapshots should render the Article Details when logged 
       >
         Edit Article
       </a>
-      <a
-        href="/"
-      >
+      <a>
         Delete Article
       </a>
     </div>
