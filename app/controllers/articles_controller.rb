@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to '/'
+      redirect_to articles_path
       flash[:success] = 'Article created successfully!'
     else
       render 'new'
@@ -41,12 +41,16 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.discard
 
-    redirect_to articles
+    flash[:notice] = "You're about to delete #{@article.title.upcase} #{view_context.link_to 'undo', recover_path}".html_safe
+
+    redirect_back(fallback_location: root_path)
   end
 
   def recover
     @article = Article.find(params[:id])
     @article.undiscard
+
+    flash[:notice] = "The article #{@article.title.upcase} has now been restored!".html_safe
 
     redirect_back(fallback_location: root_path)
   end
