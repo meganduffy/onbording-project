@@ -250,13 +250,47 @@ RSpec.describe ArticlesController, type: :controller do
 
   describe 'GET #destroy' do
     context 'when a user is logged in' do
+      let(:article) { create(:article) }
+
+      before(:each) do
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+
+      it 'adds a discarded at timestamp' do
+        get :destroy, params: { id: article.id }
+        article.reload
+        expect(article.discarded_at).to_not be_nil
+      end
     end
 
     context 'when a user is not logged in' do
       let(:article) { create(:article) }
       it 'redirects to the login page' do
-        
         get :destroy, params: { id: article.id }
+        expect(response).to redirect_to login_path
+      end
+    end
+  end
+
+  describe 'GET #recover' do
+    context 'when a user is logged in' do
+      let(:article) { create(:article) }
+
+      before(:each) do
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+
+      it 'removes the discarded at timestamp' do
+        get :recover, params: { id: article.id }
+        article.reload
+        expect(article.discarded_at).to be_nil
+      end
+    end
+
+    context 'when a user is not logged in' do
+      let(:article) { create(:article) }
+      it 'redirects to the login page' do
+        get :recover, params: { id: article.id }
         expect(response).to redirect_to login_path
       end
     end
