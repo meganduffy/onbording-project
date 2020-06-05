@@ -264,7 +264,9 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'displays a flash undo option' do
         get :destroy, params: { id: article.id }
-        expect(flash[:notice]).to match("You're about to delete #{article.title.upcase} <a href=\"/articles/#{article.id}/recover\">undo</a>")
+        expect(flash[:notice]).to match(
+          "You're about to delete #{article.title.upcase} <a href=\"/articles/#{article.id}/recover\">undo</a>"
+        )
       end
     end
 
@@ -273,6 +275,11 @@ RSpec.describe ArticlesController, type: :controller do
       it 'redirects to the login page' do
         get :destroy, params: { id: article.id }
         expect(response).to redirect_to login_path
+      end
+
+      it 'does not display an undo flash' do
+        get :destroy, params: { id: article.id }
+        expect(flash[:notice]).to be_nil
       end
     end
   end
