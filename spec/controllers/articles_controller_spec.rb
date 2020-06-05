@@ -247,4 +247,18 @@ RSpec.describe ArticlesController, type: :controller do
       end
     end
   end
+
+  describe 'GET #destroy' do
+    context 'when a user is logged in' do
+    end
+
+    context 'when a user is not logged in' do
+      let(:article) { create(:article) }
+      it 'redirects to the login page' do
+        
+        get :destroy, params: { id: article.id }
+        expect(response).to redirect_to login_path
+      end
+    end
+  end
 end

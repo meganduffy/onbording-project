@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :require_user, only: [:new, :create, :edit, :update]
+  before_action :require_user, only: [:new, :create, :edit, :update, :delete, :recover]
 
   def new
     @article = Article.new
@@ -38,12 +38,16 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.discard
+    if current_user
+      @article = Article.find(params[:id])
+      @article.discard
 
-    flash[:notice] = "You're about to delete #{@article.title.upcase} #{view_context.link_to 'undo', recover_path}".html_safe
+      flash[:notice] = "You're about to delete #{@article.title.upcase} #{view_context.link_to 'undo', recover_path}".html_safe
 
-    redirect_back(fallback_location: root_path)
+      render 'show'
+    else
+      redirect_to login_path
+    end
   end
 
   def recover
@@ -52,7 +56,7 @@ class ArticlesController < ApplicationController
 
     flash[:notice] = "The article #{@article.title.upcase} has now been restored!".html_safe
 
-    redirect_back(fallback_location: root_path)
+    redirect_to articles_path
   end
 
 private
