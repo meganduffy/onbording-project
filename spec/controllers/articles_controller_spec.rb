@@ -125,7 +125,7 @@ RSpec.describe ArticlesController, type: :controller do
 
         assigned_articles = assigns(:articles)
         assigned_articles_dates = assigned_articles[0]['created_at']
-        
+
         expect(assigned_articles_dates[0]).to be > assigned_articles_dates[1]
       end
 
@@ -140,11 +140,11 @@ RSpec.describe ArticlesController, type: :controller do
         article1 = create(:article)
         article2 = create(:article)
         get :index
-        
+
         assigned_articles = assigns(:articles)
         assigned_articles_dates = []
         assigned_articles.each { |article| assigned_articles_dates.append(article['created_at']) }
-        
+
         expect(assigned_articles_dates[0]).to be > assigned_articles_dates[1]
       end
 
@@ -211,13 +211,13 @@ RSpec.describe ArticlesController, type: :controller do
       before(:each) do
         allow(controller).to receive(:current_user).and_return(user)
       end
-      
+
       context 'with correct params' do
         it 'updates the details of an article' do
           article_params = {
             id: article.id,
-            article: { id: article.id, title: 'New Title', content: 'New content.', user_id: user.id  }
-          }      
+            article: { id: article.id, title: 'New Title', content: 'New content.', user_id: user.id }
+          }
           patch :update, params: article_params
           article.reload
           expect(article.title).to eq('New Title')
@@ -227,21 +227,21 @@ RSpec.describe ArticlesController, type: :controller do
         it 'redirects the user back to the articles list page' do
           article_params = {
             id: article.id,
-            article: { id: article.id, title: 'New Title', content: 'New content.', user_id: user.id  }
-          }      
+            article: { id: article.id, title: 'New Title', content: 'New content.', user_id: user.id }
+          }
           patch :update, params: article_params
           expect(response).to redirect_to articles_path
         end
       end
-    end 
+    end
 
     context 'when user is not logged in' do
       let(:article) { create(:article) }
       it 'redirects to the login page' do
         article_params = {
           id: article.id,
-          article: { id: article.id, title: 'New Title', content: 'New content.', user_id: nil  }
-        } 
+          article: { id: article.id, title: 'New Title', content: 'New content.', user_id: nil }
+        }
         patch :update, params: article_params
         expect(response).to redirect_to login_path
       end
