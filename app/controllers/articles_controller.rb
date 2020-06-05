@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
       @article.discard
 
-      flash[:notice] = "You're about to delete #{@article.title.upcase} #{view_context.link_to 'undo', recover_path}".html_safe
+      flash[:notice] = "You have just deleted #{@article.title.upcase} #{view_context.link_to 'continue...', articles_path} #{view_context.link_to 'undo', recover_path}".html_safe
 
       render 'show'
     else
