@@ -14,6 +14,8 @@ const expectedCreatedAt = "27 March 2020";
 const expectedEditLink = "/articles/3/edit";
 const expectedCurrentUser = 3;
 const expectedEditLinkText = "Edit Article";
+const expectedDeleteLink = "/articles/3/delete";
+const expectedDeleteLinkText = "Delete Article"
 
 describe("ArticleDetails", () => {
   describe("Snapshots", () => {
@@ -44,6 +46,7 @@ describe("ArticleDetails", () => {
           createdAt={expectedCreatedAt}
           editLink={expectedEditLink}
           currentUser={expectedCurrentUser}
+          deleteLink={expectedDeleteLink}
         />
       );
       expect(container).toMatchSnapshot();
@@ -88,7 +91,7 @@ describe("ArticleDetails", () => {
       );
     });
 
-    test("should render the edit option text if a current user is passed", () => {
+    test("should render the edit and delete options text if a current user is passed", () => {
       const { container, getByText } = render(
         <ArticleDetails
           title={expectedTitle}
@@ -100,15 +103,20 @@ describe("ArticleDetails", () => {
           createdAt={expectedCreatedAt}
           currentUser={expectedCurrentUser}
           editLink={expectedEditLink}
+          deleteLink={expectedDeleteLink}
         />
       );
       expect(container.querySelector('div.articles-aside')).toHaveTextContent(expectedEditLinkText);
+      expect(container.querySelector('div.articles-aside')).toHaveTextContent(expectedDeleteLinkText);
       expect(getByText(expectedEditLinkText).href).toBe(
         `http://localhost${expectedEditLink}`
       );
+      expect(getByText(expectedDeleteLinkText).href).toBe(
+        `http://localhost${expectedDeleteLink}`
+      );
     });
 
-    test('should not render the edit option text if a current user is not passed', () => {
+    test('should not render the edit or delete options text if a current user is not passed', () => {
       const { container } = render(
         <ArticleDetails
           title={expectedTitle}
@@ -122,6 +130,7 @@ describe("ArticleDetails", () => {
         />
       );
       expect(container.querySelector('div.articles-aside')).not.toHaveTextContent(expectedEditLinkText);
+      expect(container.querySelector('div.articles-aside')).not.toHaveTextContent(expectedDeleteLinkText);
     });
   });
 });
