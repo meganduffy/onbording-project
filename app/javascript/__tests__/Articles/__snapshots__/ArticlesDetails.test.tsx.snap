@@ -43,6 +43,11 @@ exports[`ArticleDetails Snapshots should render the Article Details when logged 
       >
         Edit Article
       </a>
+      <a
+        href="/articles/3/delete"
+      >
+        Delete Article
+      </a>
     </div>
   </div>
 </div>

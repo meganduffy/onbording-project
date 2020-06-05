@@ -1,9 +1,9 @@
 describe 'articles/index.html.erb', type: :view do
   describe 'GET #index' do
-
     before do
       controller.singleton_class.class_eval do
-        protected
+      protected
+
         def current_user
           FactoryBot.build_stubbed(:user)
         end
@@ -27,7 +27,7 @@ describe 'articles/index.html.erb', type: :view do
                            build_stubbed(:article, title: 'Test2', content: '2. Lorem Ipsum.')])
 
         render
-        
+
         expect(rendered).to include('Articles/ArticlesList', 'Articles/ArticlesList')
       end
     end

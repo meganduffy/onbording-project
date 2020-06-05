@@ -9,15 +9,19 @@ export interface ArticlesDetailsProps {
     link:string,
     linkText:string,
     editLink?:string,
+    deleteLink?:string,
     currentUser?:number
 }
 
 const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
-    let loggedInDisplay = null
+    let editArticle = null
+
+    let deleteArticle = null
 
     if (props.currentUser > 0) {
-        loggedInDisplay = (<a href={props.editLink}>Edit Article</a> )
+        editArticle = (<a href={props.editLink}>Edit Article</a> )
+        deleteArticle = (<a href={props.deleteLink}>Delete Article</a>)
     } 
 
     return (
@@ -36,7 +40,8 @@ const ArticlesDetails: React.FC<ArticlesDetailsProps> = (props) => {
 
             <div className="articles-aside">
                 <a href={props.link}>{props.linkText}</a>        
-                {loggedInDisplay}
+                {editArticle}
+                {deleteArticle}
             </div>
         </div>
     )

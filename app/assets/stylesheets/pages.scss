@@ -16,6 +16,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Kosugi', sans-serif;
+
+  .flash-msg {
+    margin: 0 auto;
+    width: 960px;
+    font-size: large;
+    border: 2px solid black;
+    padding: 5px;
+  }
 }
 
 .container {

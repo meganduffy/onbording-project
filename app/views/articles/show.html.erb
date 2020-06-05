@@ -15,6 +15,7 @@
             link:articles_path,
             linkText:"View All Articles",
             editLink: "/articles/#{@article.id}/edit",
+            deleteLink: "/articles/#{@article.id}/delete",
             currentUser: current_user&.id
         }) %>
     </div>
