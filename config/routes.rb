@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   get '/articles/:id/delete', to: 'articles#destroy'
   get '/articles/:id/recover', to: 'articles#recover', as: 'recover'
 
-  match "*path", to: 'pages#home', :via => [:get, :post]
+  # match "*path", to: 'pages#home', :via => [:get, :post]
 end

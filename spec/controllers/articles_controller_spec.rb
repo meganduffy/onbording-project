@@ -261,6 +261,11 @@ RSpec.describe ArticlesController, type: :controller do
         article.reload
         expect(article.discarded_at).to_not be_nil
       end
+
+      it 'displays a flash undo option' do
+        get :destroy, params: { id: article.id }
+        expect(flash[:notice]).to match("You're about to delete #{article.title.upcase} <a href=\"/articles/#{article.id}/recover\">undo</a>")
+      end
     end
 
     context 'when a user is not logged in' do
